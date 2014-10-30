@@ -145,7 +145,7 @@ void findNeighboursMT8(std::vector<Particle*> plist, double h)
     
 }
 
-void multiThreadNeighbour(void (*the_function)(std::vector<Particle*>,std::vector<Particle*>, double), std::vector<Particle*> plist, double h, int nthreads)
+void multiThreadNeighbour(void (*the_function)(std::vector<Particle*>, double), std::vector<Particle*> plist, double h, int nthreads)
 {
     using namespace std;
 
@@ -161,7 +161,7 @@ void multiThreadNeighbour(void (*the_function)(std::vector<Particle*>,std::vecto
             temp.push_back(plist[j]);
         }
         minilists.push_back(temp);
-        threads.push_back(new std::thread(the_function, minilists[i], plist ,h));
+        threads.push_back(new std::thread(the_function, minilists[i],h));
         
     }
     
@@ -187,6 +187,7 @@ void findNeighbours(std::vector<Particle*> plist, double h)
         plist[i]->resetneighbours();
         for (int j = 0; j < plist.size(); j++)
         {
+            
             if (i == j)
             {
                 continue;
@@ -198,6 +199,7 @@ void findNeighbours(std::vector<Particle*> plist, double h)
                 plist[i]->neighbours.push_back(plist[j]);
                 plist[i]->neighboursdist.push_back(r);
             }
+            
         }
     }
 }

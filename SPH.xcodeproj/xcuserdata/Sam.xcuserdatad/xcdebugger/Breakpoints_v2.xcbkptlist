@@ -445,7 +445,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "172"
             endingLineNumber = "172"
-            landmarkName = "multiThreadNeighbour(void (*the_function)(std::vector&lt;Particle*&gt;,std::vector&lt;Particle*&gt;, double), std::vector&lt;Particle*&gt; plist, double h, int nthreads)"
+            landmarkName = "multiThreadNeighbour(void (*the_function)(std::vector&lt;Particle*&gt;, double), std::vector&lt;Particle*&gt; plist, double h, int nthreads)"
             landmarkType = "7">
             <Locations>
                <Location
