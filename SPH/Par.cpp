@@ -7,8 +7,8 @@
 //
 
 
-#include <vector>
 #include <array>
+#include <vector>
 
 
 class Particle {

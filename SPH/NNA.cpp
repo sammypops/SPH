@@ -21,129 +21,9 @@ double pDist(Particle* p1, Particle* p2)
     
     return norm;
 }
-/****************************************************
- *******DEPRECATED USE MULTI THREAD NEIGHBOUR********
- ****************************************************
- */
-// 4 thread brute force neighbour finding algorithm
-void findNeighboursMT4(std::vector<Particle*> plist, double h)
-{
-    std::vector<Particle*> minilist1;
-    std::vector<Particle*> minilist2;
-    std::vector<Particle*> minilist3;
-    std::vector<Particle*> minilist4;
+/*
     
-    for (int i = 0; i<plist.size()/4; i++)
-    {
-        minilist1.push_back(plist[i]);
-    }
-    std::thread first (findNeighbours, minilist1, h);
-    
-    for (int i = int(ceil(plist.size()/4)); i<plist.size()/2; i++)
-    {
-        minilist2.push_back(plist[i]);
-    }
-    std::thread second (findNeighbours, minilist2,h);
-    
-    for (int i = int(ceil(plist.size()/2)); i<3*plist.size()/4; i++)
-    {
-        minilist3.push_back(plist[i]);
-    }
-    std::thread third (findNeighbours, minilist3, h);
-    
-    for (int i = int(ceil(3*plist.size()/4)); i<plist.size(); i++)
-    {
-        minilist4.push_back(plist[i]);
-    }
-    std::thread fourth (findNeighbours, minilist4, h);
-    
-    
-    
-    
-    first.join();                // pauses until first finishes
-    second.join();               // pauses until second finishes
-    third.join();
-    fourth.join();
-    
-}
-/****************************************************
- *******DEPRECATED USE MULTI THREAD NEIGHBOUR********
- ****************************************************
- */
-// 8 thread brute force neighbour finding algorithm
-void findNeighboursMT8(std::vector<Particle*> plist, double h)
-{
-    std::vector<Particle*> minilist1;
-    std::vector<Particle*> minilist2;
-    std::vector<Particle*> minilist3;
-    std::vector<Particle*> minilist4;
-    std::vector<Particle*> minilist5;
-    std::vector<Particle*> minilist6;
-    std::vector<Particle*> minilist7;
-    std::vector<Particle*> minilist8;
-    
-    //1
-    for (int i = 0; i<plist.size()/8; i++)
-    {
-        minilist1.push_back(plist[i]);
-    }
-    std::thread first (findNeighbours, minilist1, h);
-    //2
-    for (int i = int(ceil(plist.size()/8)); i<plist.size()/4; i++)
-    {
-        minilist2.push_back(plist[i]);
-    }
-    std::thread second (findNeighbours, minilist2,h);
-    //3
-    for (int i = int(ceil(plist.size()/4)); i<3*plist.size()/8; i++)
-    {
-        minilist3.push_back(plist[i]);
-    }
-    std::thread third (findNeighbours, minilist3, h);
-    //4
-    for (int i = int(ceil(3*plist.size()/8)); i<4*plist.size()/8; i++)
-    {
-        minilist4.push_back(plist[i]);
-    }
-    std::thread fourth (findNeighbours, minilist4, h);
-    //5
-    for (int i = int(ceil(4*plist.size()/8)); i<5*plist.size()/8; i++)
-    {
-        minilist5.push_back(plist[i]);
-    }
-    std::thread fifth (findNeighbours, minilist5, h);
-    //6
-    for (int i = int(ceil(5*plist.size()/8)); i<6*plist.size()/8; i++)
-    {
-        minilist6.push_back(plist[i]);
-    }
-    std::thread sixth (findNeighbours, minilist6,h);
-    //7
-    for (int i = int(ceil(6*plist.size()/8)); i<7*plist.size()/8; i++)
-    {
-        minilist7.push_back(plist[i]);
-    }
-    std::thread seventh (findNeighbours, minilist7, h);
-    //8
-    for (int i = int(ceil(7*plist.size()/8)); i<plist.size(); i++)
-    {
-        minilist8.push_back(plist[i]);
-    }
-    std::thread eighth (findNeighbours, minilist8, h);
-    
-    
-    
-    
-    first.join();                // pauses until first finishes
-    second.join();               // pauses until second finishes
-    third.join();
-    fourth.join();
-    fifth.join();
-    sixth.join();
-    seventh.join();
-    eighth.join();
-    
-}
+*/
 
 void FNMT8(std::vector<Particle*> plist, double h)
 {
@@ -225,30 +105,6 @@ void FNMT8(std::vector<Particle*> plist, double h)
  by brute force, it takes a long time for large groups of particles
  but will not fail to get a comprehensive list of neighbours
 */
-void findNeighbours(std::vector<Particle*> plist, double h)
-{
-    double r = 0.0;
-    for (int i = 0; i < plist.size(); i++)
-    {
-        plist[i]->resetneighbours();
-        for (int j = 0; j < plist.size(); j++)
-        {
-            
-            if (i == j)
-            {
-                continue;
-            }
-            r = pDist(plist[i], plist[j]);
-            
-            if (fabs(r) < 2*h-0.0000001 ) // if the particles i and j are close add them to the list of neighbours for particle i
-            {
-                plist[i]->neighbours.push_back(plist[j]);
-                plist[i]->neighboursdist.push_back(r);
-            }
-            
-        }
-    }
-}
 
 void FN(std::vector<Particle*> plist, std::vector<Particle*> allParticles, double h)
 {
@@ -259,7 +115,7 @@ void FN(std::vector<Particle*> plist, std::vector<Particle*> allParticles, doubl
         for (int j = 0; j < allParticles.size(); j++)
         {
             
-            if (i == j)
+            if (plist[i] == allParticles[j])
             {
                 continue;
             }

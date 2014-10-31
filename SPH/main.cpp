@@ -14,7 +14,6 @@
 #include "NNA.h"
 #include "Kernel.h"
 
-double somekernel(double r);
 
 
 
@@ -30,10 +29,11 @@ int main(int argc, const char * argv[])
     double dkernel = 0.0;
     double sum = 0.0;
     double xr = 0.0;
-    double x = 40.0;
-    double y = 40.01;
+    double x = 100.0;
+    double y = 100.01;
     double timed;
     
+    vector<int> nn1, nn2;
     
     std::clock_t t;
     
@@ -53,25 +53,26 @@ int main(int argc, const char * argv[])
     }
     cout<<"Particle initialisation finished \n"<< listofparticles.size() <<" Particles \n \n";
     
+    
+    
     // for each particle, find neighbours
     cout<<"Finding neighbours \n \n";
     
     t = clock();
-    //findNeighbours(listofparticles, h);
-    //multiThreadNeighbour(&findNeighbours, listofparticles, h, 8);
     FNMT8(listofparticles, h);
     t = (clock() - t);
     timed = t / (double) CLOCKS_PER_SEC;
     
     cout<<"Neighbours found in "<< timed/8 << " seconds \n \n";
     
+    
     cout<<"Updating neighbours \n \n";
     t = clock();
-    //multiThreadNeighbour(&updateNeighbours, listofparticles, h, 8);
     updateNeighboursMT8(listofparticles, h);
     t = (clock() - t);
     timed = t / (double) CLOCKS_PER_SEC;
     cout<<"Neighbours found in "<< timed/8 << " seconds \n \n";
+    
     
     // calculate drho/dt by summing over neighbours
     
