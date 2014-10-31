@@ -20,9 +20,12 @@ using namespace std;
 
 void findNeighboursMT4(std::vector<Particle*> plist, double h);
 void findNeighboursMT8(std::vector<Particle*> plist, double h);
-void multiThreadNeighbour(void (*the_function)(std::vector<Particle*>, double), std::vector<Particle*> plist, double h, int nthreads);
 void findNeighbours(std::vector<Particle*> plist, double h);
 void updateNeighboursMT8(std::vector<Particle*> plist, double h);
 void updateNeighbours (std::vector<Particle*> plist, double h);
+
+void FNMT8(std::vector<Particle*> plist, double h);
+void FN(std::vector<Particle*> plist, std::vector<Particle*> allParticles, double h);
+
 
 #endif

@@ -30,8 +30,8 @@ int main(int argc, const char * argv[])
     double dkernel = 0.0;
     double sum = 0.0;
     double xr = 0.0;
-    double x = 10.0;
-    double y = 10.01;
+    double x = 40.0;
+    double y = 40.01;
     double timed;
     
     
@@ -57,8 +57,9 @@ int main(int argc, const char * argv[])
     cout<<"Finding neighbours \n \n";
     
     t = clock();
-    //findNeighboursMT8(listofparticles, h);
-    multiThreadNeighbour(&findNeighbours, listofparticles, h, 8);
+    //findNeighbours(listofparticles, h);
+    //multiThreadNeighbour(&findNeighbours, listofparticles, h, 8);
+    FNMT8(listofparticles, h);
     t = (clock() - t);
     timed = t / (double) CLOCKS_PER_SEC;
     
@@ -67,6 +68,7 @@ int main(int argc, const char * argv[])
     cout<<"Updating neighbours \n \n";
     t = clock();
     //multiThreadNeighbour(&updateNeighbours, listofparticles, h, 8);
+    updateNeighboursMT8(listofparticles, h);
     t = (clock() - t);
     timed = t / (double) CLOCKS_PER_SEC;
     cout<<"Neighbours found in "<< timed/8 << " seconds \n \n";
