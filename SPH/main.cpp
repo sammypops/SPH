@@ -11,9 +11,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "Par.h"
+#include "Initialise.h"
 #include "NNA.h"
 #include "Kernel.h"
 #include "Momentum.h"
+#include "MyStructs.h"
 
 
 
@@ -23,6 +25,11 @@ int main(int argc, const char * argv[])
     using namespace std;    // gives us access to cout and endl
 
     // declare variables
+    
+    infoModule simInfo;
+    
+    
+    
     double rho0 = 1000.;
     double r = 0.0;
     double deltax = 0.1;
@@ -36,6 +43,13 @@ int main(int argc, const char * argv[])
     
     double x = 1.0;
     double y = 1.0;
+    
+    
+    simInfo.deltax = deltax;
+    simInfo.domain = domain;
+    simInfo.h = h;
+    simInfo.rho0 = rho0;
+    
     
     
     double timed;

@@ -31,11 +31,15 @@ public:
         position[0] = 0.0;
         position[1] = 0.0;
         
+        iswall = 0;
+        
         vel[0] = 0.0;
         vel[1] = 0.0;
     }
     Particle(std::array<double, 2> posn, std::array<double, 2> velocity, std::array<double, 3> init)// {x,y},{u,v},{m,pressure,density}
     {
+        iswall = 0;
+        
         position[0] = posn[0];
         position[1] = posn[1];
         
@@ -47,9 +51,17 @@ public:
         pressure[0] = init[1];
         density[0] = init[2];
     }
+    // Create a wall particle
     Particle(int wall, std::array<double, 2> posn, std::array<double, 3> init)// {x,y},{m,pressure,density}
     {
+        iswall = wall;
+        position[0] = posn[0];
+        position[1] = posn[1];
         
+        m[0] = init[0];
+        
+        pressure[0] = init[1];
+        density[0] = init[2];
     }
     void resetneighbours()
     {
