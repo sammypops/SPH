@@ -16,6 +16,7 @@
 #include "Kernel.h"
 #include "Momentum.h"
 #include "MyStructs.h"
+#include "Initialise.h"
 
 
 
@@ -32,7 +33,7 @@ int main(int argc, const char * argv[])
     
     double rho0 = 1000.;
     double r = 0.0;
-    double deltax = 0.1;
+    double deltax = 0.02;
     double h = 1.3*deltax;
     double dkernel = 0.0;
     double sum = 0.0;
@@ -53,7 +54,7 @@ int main(int argc, const char * argv[])
     
     
     double timed;
-    double p;
+    
     
     std::clock_t t;
     
@@ -62,17 +63,19 @@ int main(int argc, const char * argv[])
     
     // create particles and initialise them
     cout<<"Beginning particle initialisation \n \n";
-    for (double i = 0; i < x; i = i + deltax)
-    {
-        for (double j=0; j<y; j = j+ deltax)
-        {
-            p = rho0* 9.81 * (y-j);
-            p = p;
-            listofparticles.push_back(new Particle({i,j}, {0.0,0.0}, {rho0*deltax, p , rho0}));
-            // particles have vel {10x,0} and mass rho0*deltax
-        }
-        
-    }
+    
+    createWall(&listofparticles, {-3.0*deltax,-3.0*deltax,0}, {2+3.0*deltax,-deltax,0}, &simInfo);
+    createWall(&listofparticles, {-3.0*deltax,deltax,0}, {-deltax,2+3.0*deltax,0}, &simInfo);
+    createWall(&listofparticles, {2 + deltax,deltax,0}, {2 + 3*deltax,2+3.0*deltax,0}, &simInfo);
+    
+    cout<<"Particle wall initialisation finished \n"<< listofparticles.size() <<" Particles \n \n";
+    
+    createFuid(&listofparticles, {0,0,0}, {1,1,0}, &simInfo);
+    
+    
+    
+    initPressure(listofparticles, &simInfo);
+    
     cout<<"Particle initialisation finished \n"<< listofparticles.size() <<" Particles \n \n";
     
     

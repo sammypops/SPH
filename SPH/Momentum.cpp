@@ -17,6 +17,10 @@ void momentum(std::vector<Particle*> plist, double h)
     double p_i, p_j, rho_i, rho_j;
     for (int i = 0; i<plist.size(); i++)
     {
+        // don't include the wall particles maybe?
+        if (plist[i]->iswall == 1) {
+            continue;
+        }
         xsum = 0.0;
         ysum = 0.0;
         p_i = plist[i]->pressure[0];
@@ -31,14 +35,14 @@ void momentum(std::vector<Particle*> plist, double h)
             p_j = plist[i]->neighbours[j]->pressure[0];
             rho_j = plist[i]->neighbours[j]->density[0];
             
-            
+            //momentum eqn
             xsum = xsum - (plist[i]->neighbours[j]->m[0]*(p_j/pow(rho_j, 2) + p_i/pow(rho_i, 2)) * xr * dkernel);
             ysum = ysum - (plist[i]->neighbours[j]->m[0]*(p_j/pow(rho_j, 2) + p_i/pow(rho_i, 2)) * yr * dkernel);
             
         }
         
-        plist[i]->vel[0] = plist[i]->vel[0] + xsum;
-        plist[i]->vel[1] = plist[i]->vel[1] + ysum;
+        plist[i]->vel[0] = plist[i]->dvdt[0] + xsum;
+        plist[i]->vel[1] = plist[i]->dvdt[1] + ysum;
         
     }
     

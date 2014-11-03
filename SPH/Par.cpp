@@ -16,6 +16,7 @@ class Particle {
 public:
     std::array<double, 2>  position;
     std::array<double, 2>  vel;
+    std::array<double, 2> dvdt;
     std::array<double, 1> drhodt;
     std::array<double,1> m;
     std::array<double, 1>  pressure;
@@ -39,6 +40,8 @@ public:
     Particle(std::array<double, 2> posn, std::array<double, 2> velocity, std::array<double, 3> init)// {x,y},{u,v},{m,pressure,density}
     {
         iswall = 0;
+        
+        dvdt = {0,0};
         
         position[0] = posn[0];
         position[1] = posn[1];
