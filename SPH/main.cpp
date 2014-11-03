@@ -13,6 +13,7 @@
 #include "Par.h"
 #include "NNA.h"
 #include "Kernel.h"
+#include "Momentum.h"
 
 
 
@@ -24,16 +25,21 @@ int main(int argc, const char * argv[])
     // declare variables
     double rho0 = 1000.;
     double r = 0.0;
-    double deltax = 0.2;
+    double deltax = 0.1;
     double h = 1.3*deltax;
     double dkernel = 0.0;
     double sum = 0.0;
     double xr = 0.0;
-    double x = 100.0;
-    double y = 100.01;
-    double timed;
     
-    vector<int> nn1, nn2;
+    array<double, 4> domain = {0.0, 1.0, 0.0, 1.0};
+    
+    
+    double x = 1.0;
+    double y = 1.0;
+    
+    
+    double timed;
+    double p;
     
     std::clock_t t;
     
@@ -46,7 +52,9 @@ int main(int argc, const char * argv[])
     {
         for (double j=0; j<y; j = j+ deltax)
         {
-            listofparticles.push_back(new Particle({i,j, 10*i,0.0,rho0*deltax}));
+            p = rho0* 9.81 * (y-j);
+            p = p;
+            listofparticles.push_back(new Particle({i,j}, {0.0,0.0}, {rho0*deltax, p , rho0}));
             // particles have vel {10x,0} and mass rho0*deltax
         }
         
@@ -74,6 +82,11 @@ int main(int argc, const char * argv[])
     cout<<"Neighbours found in "<< timed/8 << " seconds \n \n";
     
     
+    
+    
+    
+    
+    
     // calculate drho/dt by summing over neighbours
     
     for (int n = 0; n<listofparticles.size(); n++)
@@ -83,7 +96,7 @@ int main(int argc, const char * argv[])
         for (int m=0; m<listofparticles[n]->neighbours.size(); m++)
         {
             r = listofparticles[n]->neighboursdist[m];
-            if (r == 0)
+            if (listofparticles[n]->neighboursdist[m] == 0)
             {
                 continue;
             }
@@ -97,7 +110,7 @@ int main(int argc, const char * argv[])
         listofparticles[n]->drhodt[0] = sum;
     }
     
-    
+    momentum(listofparticles,h);
     
     // output some stuff
     

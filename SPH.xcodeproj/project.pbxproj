@@ -12,6 +12,7 @@
 		2263833119FA90AC0041B828 /* SPH.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2263833019FA90AC0041B828 /* SPH.1 */; };
 		22BF132419FD7055001A059A /* Par.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22BF132219FD7055001A059A /* Par.cpp */; };
 		22BF132519FDB319001A059A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2263832E19FA90AC0041B828 /* main.cpp */; };
+		22DCB5701A07BED4000DA7C9 /* Momentum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22DCB56E1A07BED4000DA7C9 /* Momentum.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +38,8 @@
 		2263833019FA90AC0041B828 /* SPH.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = SPH.1; sourceTree = "<group>"; };
 		22BF132219FD7055001A059A /* Par.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Par.cpp; sourceTree = "<group>"; };
 		22BF132319FD7055001A059A /* Par.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Par.h; sourceTree = "<group>"; };
+		22DCB56E1A07BED4000DA7C9 /* Momentum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Momentum.cpp; sourceTree = "<group>"; };
+		22DCB56F1A07BED4000DA7C9 /* Momentum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Momentum.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +73,8 @@
 			isa = PBXGroup;
 			children = (
 				2263832E19FA90AC0041B828 /* main.cpp */,
+				22DCB56E1A07BED4000DA7C9 /* Momentum.cpp */,
+				22DCB56F1A07BED4000DA7C9 /* Momentum.h */,
 				225833351A028843008A17DE /* Kernel.cpp */,
 				225833361A028843008A17DE /* Kernel.h */,
 				225833321A027F7B008A17DE /* NNA.cpp */,
@@ -136,6 +141,7 @@
 				225833331A027F7B008A17DE /* NNA.cpp in Sources */,
 				22BF132519FDB319001A059A /* main.cpp in Sources */,
 				22BF132419FD7055001A059A /* Par.cpp in Sources */,
+				22DCB5701A07BED4000DA7C9 /* Momentum.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
