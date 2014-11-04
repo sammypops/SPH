@@ -17,6 +17,7 @@
 #include "Momentum.h"
 #include "MyStructs.h"
 #include "Initialise.h"
+#include "Density.h"
 
 
 
@@ -32,27 +33,27 @@ int main(int argc, const char * argv[])
     
     
     double rho0 = 1000.;
-    double r = 0.0;
     double deltax = 0.02;
     double h = 1.3*deltax;
-    double dkernel = 0.0;
-    double sum = 0.0;
-    double xr = 0.0;
     
-    array<double, 4> domain = {0.0, 1.0, 0.0, 1.0};
+    int nDim = 2;
+    
+    array<double, 6> domain = {0.0, 1.0, 0.0, 1.0, 0.0, 0.0};
     
     
     simInfo.deltax = deltax;
     simInfo.domain = domain;
     simInfo.h = h;
     simInfo.rho0 = rho0;
-    
+    simInfo.nDim = nDim;
     
     
     double timed;
     
     
     std::clock_t t;
+    
+    
     
     // create particle list
     vector<Particle*> listofparticles;
@@ -78,12 +79,10 @@ int main(int argc, const char * argv[])
     
     // for each particle, find neighbours
     cout<<"Finding neighbours \n \n";
-    
     t = clock();
     FNMT8(listofparticles, &simInfo);
     t = (clock() - t);
     timed = t / (double) CLOCKS_PER_SEC;
-    
     cout<<"Neighbours found in "<< timed/8 << " seconds \n \n";
     
     
@@ -96,6 +95,8 @@ int main(int argc, const char * argv[])
     
     
     // calculate drho/dt by summing over neighbours
+    
+    findDensity(listofparticles,&simInfo);
     
         
     momentum(listofparticles,&simInfo);

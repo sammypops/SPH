@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include <cmath>
+#include <array>
 #include <vector>
 #include "Par.h"
 #include "Kernel.h"

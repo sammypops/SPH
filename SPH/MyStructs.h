@@ -14,12 +14,14 @@
 
 struct infoModule{
     
-    std::array<double, 4> domain;
+    std::array<double, 6> domain;
     double deltax;
     double h;
     double rho0;
     double x;
     double y;
+    
+    double deltat;
     
     int nDim;
     

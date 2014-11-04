@@ -11,6 +11,7 @@
 void findDensity(std::vector<Particle*> plist, infoModule* module)
 {
     double sum, r, dxdr, dkernel;
+    
     for (int n = 0; n<plist.size(); n++)
     {
         sum = 0.0;

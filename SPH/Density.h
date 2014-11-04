@@ -16,5 +16,6 @@
 #include "Par.h"
 #include "Kernel.h"
 
+void findDensity(std::vector<Particle*> plist, infoModule* module);
 
 #endif /* defined(__SPH__Density__) */
