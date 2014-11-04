@@ -8,7 +8,7 @@
 
 #include "Momentum.h"
 
-void momentum(std::vector<Particle*> plist, double h)
+void momentum(std::vector<Particle*> plist, infoModule* module)
 {
     double r;
     double dkernel;
@@ -28,7 +28,7 @@ void momentum(std::vector<Particle*> plist, double h)
         for (int j = 0; j<plist[i]->neighbours.size(); j++)
         {
             r = plist[i]->neighboursdist[j];
-            dkernel = wendkernel(r,  h);
+            dkernel = wendkernel(r,  module);
             xr = (plist[i]->position[0] - plist[i]->neighbours[j]-> position[0])/r;
             yr = (plist[i]->position[1] - plist[i]->neighbours[j]-> position[1])/r;
             

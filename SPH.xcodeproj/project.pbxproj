@@ -10,6 +10,7 @@
 		225833331A027F7B008A17DE /* NNA.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 225833321A027F7B008A17DE /* NNA.cpp */; };
 		225833371A028843008A17DE /* Kernel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 225833351A028843008A17DE /* Kernel.cpp */; };
 		2263833119FA90AC0041B828 /* SPH.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2263833019FA90AC0041B828 /* SPH.1 */; };
+		22ACFAF81A09946A0062F7E1 /* Density.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22ACFAF61A09946A0062F7E1 /* Density.cpp */; };
 		22BF132419FD7055001A059A /* Par.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22BF132219FD7055001A059A /* Par.cpp */; };
 		22BF132519FDB319001A059A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2263832E19FA90AC0041B828 /* main.cpp */; };
 		22DCB5701A07BED4000DA7C9 /* Momentum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22DCB56E1A07BED4000DA7C9 /* Momentum.cpp */; };
@@ -37,6 +38,8 @@
 		2263832B19FA90AC0041B828 /* SPH */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SPH; sourceTree = BUILT_PRODUCTS_DIR; };
 		2263832E19FA90AC0041B828 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		2263833019FA90AC0041B828 /* SPH.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = SPH.1; sourceTree = "<group>"; };
+		22ACFAF61A09946A0062F7E1 /* Density.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Density.cpp; sourceTree = "<group>"; };
+		22ACFAF71A09946A0062F7E1 /* Density.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Density.h; sourceTree = "<group>"; };
 		22BF132219FD7055001A059A /* Par.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Par.cpp; sourceTree = "<group>"; };
 		22BF132319FD7055001A059A /* Par.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Par.h; sourceTree = "<group>"; };
 		22DCB56E1A07BED4000DA7C9 /* Momentum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Momentum.cpp; sourceTree = "<group>"; };
@@ -78,6 +81,8 @@
 			children = (
 				2263832E19FA90AC0041B828 /* main.cpp */,
 				22DCB5751A07DB38000DA7C9 /* MyStructs.h */,
+				22ACFAF61A09946A0062F7E1 /* Density.cpp */,
+				22ACFAF71A09946A0062F7E1 /* Density.h */,
 				22DCB5711A07D1B0000DA7C9 /* Initialise.cpp */,
 				22DCB5721A07D1B0000DA7C9 /* Initialise.h */,
 				22DCB56E1A07BED4000DA7C9 /* Momentum.cpp */,
@@ -147,6 +152,7 @@
 				225833371A028843008A17DE /* Kernel.cpp in Sources */,
 				225833331A027F7B008A17DE /* NNA.cpp in Sources */,
 				22BF132519FDB319001A059A /* main.cpp in Sources */,
+				22ACFAF81A09946A0062F7E1 /* Density.cpp in Sources */,
 				22BF132419FD7055001A059A /* Par.cpp in Sources */,
 				22DCB5731A07D1B0000DA7C9 /* Initialise.cpp in Sources */,
 				22DCB5701A07BED4000DA7C9 /* Momentum.cpp in Sources */,
