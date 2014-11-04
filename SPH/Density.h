@@ -13,6 +13,8 @@
 #include <cmath>
 #include <vector>
 #include "MyStructs.h"
+#include "Par.h"
+#include "Kernel.h"
 
 
 #endif /* defined(__SPH__Density__) */
