@@ -20,11 +20,11 @@
 using namespace std;
 
 
-void updateNeighboursMT8(std::vector<Particle*> plist, double h);
-void updateNeighbours (std::vector<Particle*> plist, double h);
+void updateNeighboursMT8(std::vector<Particle*> plist, infoModule* module);
+void updateNeighbours (std::vector<Particle*> plist, infoModule* module);
 
-void FNMT8(std::vector<Particle*> plist, double h);
-void FN(std::vector<Particle*> plist, std::vector<Particle*> allParticles, double h);
+void FNMT8(std::vector<Particle*> plist, infoModule* module);
+void FN(std::vector<Particle*> plist, std::vector<Particle*> allParticles, infoModule* module);
 
 
 #endif

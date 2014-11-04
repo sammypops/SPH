@@ -11,9 +11,10 @@
 
 #include <iostream>
 #include <cmath>
+#include "MyStructs.h"
 
-double wendkernel(double r, double h);
-double gausskernel(double r, double h);
-double quadkernel(double r, double h);
+double wendkernel(double r, infoModule* module);
+double gausskernel(double r, infoModule* module);
+double quadkernel(double r, infoModule* module);
 
 #endif /* defined(__SPH__Kernel__) */
