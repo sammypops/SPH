@@ -14,13 +14,15 @@
 class Particle {
     int a;
 public:
-    std::array<double, 2>  position;
-    std::array<double, 2>  vel;
-    std::array<double, 2> dvdt;
-    std::array<double, 1> drhodt;
+    std::array<double, 3>  position;
+    std::array<double, 3>  vel;
+    std::array<double, 3> accel;
+    std::array<double, 3> drhodt;
     std::array<double,1> m;
     std::array<double, 1>  pressure;
     std::array<double, 1>  density;
+    
+    
     std::vector<Particle*> neighbours;
     std::vector<double> neighboursdist;
     
@@ -37,17 +39,19 @@ public:
         vel[0] = 0.0;
         vel[1] = 0.0;
     }
-    Particle(std::array<double, 2> posn, std::array<double, 2> velocity, std::array<double, 3> init)// {x,y},{u,v},{m,pressure,density}
+    Particle(std::array<double, 3> posn, std::array<double, 3> velocity, std::array<double, 3> init)// {x,y},{u,v},{m,pressure,density}
     {
         iswall = 0;
         
-        dvdt = {0,0};
+        accel = {0,0};
         
         position[0] = posn[0];
         position[1] = posn[1];
+        position[2] = posn[2];
         
         vel[0] = velocity[0];
         vel[1] = velocity[1];
+        vel[2] = velocity[2];
         
         m[0] = init[0];
         
@@ -55,11 +59,12 @@ public:
         density[0] = init[2];
     }
     // Create a wall particle
-    Particle(int wall, std::array<double, 2> posn, std::array<double, 3> init)// {x,y},{m,pressure,density}
+    Particle(int wall, std::array<double, 3> posn, std::array<double, 3> init)// {x,y},{m,pressure,density}
     {
         iswall = wall;
         position[0] = posn[0];
         position[1] = posn[1];
+        position[2] = posn[2];
         
         m[0] = init[0];
         

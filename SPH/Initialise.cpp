@@ -8,6 +8,10 @@
 
 #include "Initialise.h"
 
+/*
+    creates a box, square or line of wall particles, be careful not to put wall particles on top of fluids and vice versa
+ */
+
 void createWall(std::vector<Particle*>* plist, std::array<double, 3> start, std::array<double, 3> finish, infoModule* module)
 {
     for (double i = start[0]; i <= finish[0]; i = i + module->deltax)
@@ -17,7 +21,7 @@ void createWall(std::vector<Particle*>* plist, std::array<double, 3> start, std:
             for (double k = start[2]; k<= finish[2]; k = k + module->deltax)
             {
                 //******************************************************************************************
-                plist->push_back(new Particle(1, {i,j}, {module->rho0*module->deltax, 0.0 , module->rho0}));
+                plist->push_back(new Particle(1, {i,j}, {module->rho0*module->deltax, 0.0 , module->rho0})); // uses the wall constructor
                 //******************************************************************************************
             }
             
@@ -26,6 +30,10 @@ void createWall(std::vector<Particle*>* plist, std::array<double, 3> start, std:
     }
     
 }
+/*
+    creates a box or square of particles given the opposite corners of the shape.
+ */
+
 
 void createFuid(std::vector<Particle*>* plist, std::array<double, 3> start, std::array<double, 3> finish, infoModule* module)
 {
@@ -46,6 +54,16 @@ void createFuid(std::vector<Particle*>* plist, std::array<double, 3> start, std:
     
 }
 
+/* 
+ bit of a hack way of initialising pressure.
+ find a line of vertical particles and give them a pressure gradient which
+ is dependant on the top and bottom particle.
+ Only works for cube shaped latices of particles
+ 
+ future work?:  work over a range of x values in the domain
+                or move to 3D code finding vertical strings
+                of particles in the Z direction.
+*/
 void initPressure(std::vector<Particle*> plist, infoModule* module)
 {
     std::vector<Particle*> sub, remaining;

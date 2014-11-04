@@ -41,8 +41,8 @@ void momentum(std::vector<Particle*> plist, double h)
             
         }
         
-        plist[i]->vel[0] = plist[i]->dvdt[0] + xsum;
-        plist[i]->vel[1] = plist[i]->dvdt[1] + ysum;
+        plist[i]->vel[0] = plist[i]->accel[0] + xsum;
+        plist[i]->vel[1] = plist[i]->accel[1] + ysum;
         
     }
     

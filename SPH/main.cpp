@@ -42,10 +42,6 @@ int main(int argc, const char * argv[])
     array<double, 4> domain = {0.0, 1.0, 0.0, 1.0};
     
     
-    double x = 1.0;
-    double y = 1.0;
-    
-    
     simInfo.deltax = deltax;
     simInfo.domain = domain;
     simInfo.h = h;

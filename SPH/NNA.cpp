@@ -25,7 +25,7 @@ double pDist(Particle* p1, Particle* p2)
     
 */
 
-void FNMT8(std::vector<Particle*> plist, double h)
+void FNMT8(std::vector<Particle*> plist, infoModule* module)
 {
     std::vector<Particle*> minilist1;
     std::vector<Particle*> minilist2;
@@ -41,49 +41,49 @@ void FNMT8(std::vector<Particle*> plist, double h)
     {
         minilist1.push_back(plist[i]);
     }
-    std::thread first (FN, minilist1, plist, h);
+    std::thread first (FN, minilist1, plist, module);
     //2
     for (int i = int(ceil(plist.size()/8)); i<plist.size()/4; i++)
     {
         minilist2.push_back(plist[i]);
     }
-    std::thread second (FN, minilist2, plist,h);
+    std::thread second (FN, minilist2, plist,module);
     //3
     for (int i = int(ceil(plist.size()/4)); i<3*plist.size()/8; i++)
     {
         minilist3.push_back(plist[i]);
     }
-    std::thread third (FN, minilist3, plist, h);
+    std::thread third (FN, minilist3, plist, module);
     //4
     for (int i = int(ceil(3*plist.size()/8)); i<4*plist.size()/8; i++)
     {
         minilist4.push_back(plist[i]);
     }
-    std::thread fourth (FN, minilist4, plist, h);
+    std::thread fourth (FN, minilist4, plist, module);
     //5
     for (int i = int(ceil(4*plist.size()/8)); i<5*plist.size()/8; i++)
     {
         minilist5.push_back(plist[i]);
     }
-    std::thread fifth (FN, minilist5, plist, h);
+    std::thread fifth (FN, minilist5, plist, module);
     //6
     for (int i = int(ceil(5*plist.size()/8)); i<6*plist.size()/8; i++)
     {
         minilist6.push_back(plist[i]);
     }
-    std::thread sixth (FN, minilist6, plist,h);
+    std::thread sixth (FN, minilist6, plist,module);
     //7
     for (int i = int(ceil(6*plist.size()/8)); i<7*plist.size()/8; i++)
     {
         minilist7.push_back(plist[i]);
     }
-    std::thread seventh (FN, minilist7, plist, h);
+    std::thread seventh (FN, minilist7, plist, module);
     //8
     for (int i = int(ceil(7*plist.size()/8)); i<plist.size(); i++)
     {
         minilist8.push_back(plist[i]);
     }
-    std::thread eighth (FN, minilist8, plist, h);
+    std::thread eighth (FN, minilist8, plist, module);
     
     
     
@@ -106,7 +106,7 @@ void FNMT8(std::vector<Particle*> plist, double h)
  but will not fail to get a comprehensive list of neighbours
 */
 
-void FN(std::vector<Particle*> plist, std::vector<Particle*> allParticles, double h)
+void FN(std::vector<Particle*> plist, std::vector<Particle*> allParticles, infoModule* module)
 {
     double r = 0.0;
     for (int i = 0; i < plist.size(); i++)
@@ -121,7 +121,7 @@ void FN(std::vector<Particle*> plist, std::vector<Particle*> allParticles, doubl
             }
             r = pDist(plist[i], allParticles[j]);
             
-            if (fabs(r) < 2*h-0.0000001 ) // if the particles i and j are close add them to the list of neighbours for particle i
+            if (fabs(r) < 2*module->h-0.0000001 ) // if the particles i and j are close add them to the list of neighbours for particle i
             {
                 plist[i]->neighbours.push_back(allParticles[j]);
                 plist[i]->neighboursdist.push_back(r);
@@ -132,7 +132,7 @@ void FN(std::vector<Particle*> plist, std::vector<Particle*> allParticles, doubl
 }
 
 // 8 threaded recursive neighbour update
-void updateNeighboursMT8(std::vector<Particle*> plist, double h)
+void updateNeighboursMT8(std::vector<Particle*> plist, infoModule* module)
 {
     std::vector<Particle*> minilist1;
     std::vector<Particle*> minilist2;
@@ -148,49 +148,49 @@ void updateNeighboursMT8(std::vector<Particle*> plist, double h)
     {
         minilist1.push_back(plist[i]);
     }
-    std::thread first (updateNeighbours, minilist1, h);
+    std::thread first (updateNeighbours, minilist1, module);
     //2
     for (int i = int(ceil(plist.size()/8)); i<plist.size()/4; i++)
     {
         minilist2.push_back(plist[i]);
     }
-    std::thread second (updateNeighbours, minilist2,h);
+    std::thread second (updateNeighbours, minilist2,module);
     //3
     for (int i = int(ceil(plist.size()/4)); i<3*plist.size()/8; i++)
     {
         minilist3.push_back(plist[i]);
     }
-    std::thread third (updateNeighbours, minilist3, h);
+    std::thread third (updateNeighbours, minilist3, module);
     //4
     for (int i = int(ceil(3*plist.size()/8)); i<4*plist.size()/8; i++)
     {
         minilist4.push_back(plist[i]);
     }
-    std::thread fourth (updateNeighbours, minilist4, h);
+    std::thread fourth (updateNeighbours, minilist4, module);
     //5
     for (int i = int(ceil(4*plist.size()/8)); i<5*plist.size()/8; i++)
     {
         minilist5.push_back(plist[i]);
     }
-    std::thread fifth (updateNeighbours, minilist5, h);
+    std::thread fifth (updateNeighbours, minilist5, module);
     //6
     for (int i = int(ceil(5*plist.size()/8)); i<6*plist.size()/8; i++)
     {
         minilist6.push_back(plist[i]);
     }
-    std::thread sixth (updateNeighbours, minilist6,h);
+    std::thread sixth (updateNeighbours, minilist6,module);
     //7
     for (int i = int(ceil(6*plist.size()/8)); i<7*plist.size()/8; i++)
     {
         minilist7.push_back(plist[i]);
     }
-    std::thread seventh (updateNeighbours, minilist7, h);
+    std::thread seventh (updateNeighbours, minilist7, module);
     //8
     for (int i = int(ceil(7*plist.size()/8)); i<plist.size(); i++)
     {
         minilist8.push_back(plist[i]);
     }
-    std::thread eighth (updateNeighbours, minilist8, h);
+    std::thread eighth (updateNeighbours, minilist8, module);
     
     
     
@@ -214,7 +214,7 @@ void updateNeighboursMT8(std::vector<Particle*> plist, double h)
  Very quick but will fail for two separate bodies of particles 
  colliding
  */
-void updateNeighbours (std::vector<Particle*> plist, double h)
+void updateNeighbours (std::vector<Particle*> plist, infoModule* module)
 {
     double r = 0.0;
     std::vector<Particle*> newneighbours;
@@ -231,7 +231,7 @@ void updateNeighbours (std::vector<Particle*> plist, double h)
                 if (std::find(newneighbours.begin(), newneighbours.end(), plist[i]->neighbours[j]->neighbours[k]) == newneighbours.end() && plist[i] != plist[i]->neighbours[j]->neighbours[k])
                 {
                     r = pDist(plist[i], plist[i]->neighbours[j]->neighbours[k]);
-                    if (fabs(r) < 2*h-0.0000001 ) // if the particles i and k are close add them to the list of newNeighbours for particle i
+                    if (fabs(r) < 2*module->h-0.0000001 ) // if the particles i and k are close add them to the list of newNeighbours for particle i
                     {
                         newneighbours.push_back(plist[i]->neighbours[j]->neighbours[k]);
                         newneighboursdist.push_back(r);

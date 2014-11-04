@@ -15,6 +15,7 @@
 #include <thread>
 #include <stdlib.h>
 #include "Par.h"
+#include "MyStructs.h"
 
 using namespace std;
 
