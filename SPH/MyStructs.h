@@ -21,6 +21,7 @@ struct infoModule{
     double x;
     double y;
     
+    double simTime;
     double deltat;
     
     int nDim;

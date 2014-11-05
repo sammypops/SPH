@@ -13,6 +13,7 @@
 #include <cmath>
 #include "Par.h"
 #include "MyStructs.h"
+#include "Momentum.h"
 
 
 #endif /* defined(__SPH__Timestep__) */

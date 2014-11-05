@@ -17,5 +17,6 @@
 #include "Kernel.h"
 
 void findAccel(std::vector<Particle*> plist, infoModule* module);
+void findNextAccel(std::vector<Particle*> plist, infoModule* module);
 
 #endif /* defined(__SPH__Momentum__) */

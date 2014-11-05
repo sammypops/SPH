@@ -16,7 +16,7 @@ class Particle {
 public:
     std::array<double, 3>  position;
     std::array<double, 3>  vel;
-    std::array<double, 3> accel, prevAccel;
+    std::array<double, 3> accel, nextAccel, prevAccel;
     std::array<double, 3> drhodt;
     std::array<double,1> m;
     std::array<double, 1>  pressure;

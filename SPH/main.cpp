@@ -33,12 +33,12 @@ int main(int argc, const char * argv[])
     
     
     double rho0 = 1000.;
-    double deltax = 0.02;
+    double deltax = 0.05;
     double h = 1.3*deltax;
     
     int nDim = 2;
     
-    array<double, 6> domain = {0.0, 1.0, 0.0, 1.0, 0.0, 0.0};
+    array<double, 6> domain = {0.0, 2.0, 0.0, 2.0, 0.0, 0.0};
     
     
     simInfo.deltax = deltax;
@@ -46,6 +46,9 @@ int main(int argc, const char * argv[])
     simInfo.h = h;
     simInfo.rho0 = rho0;
     simInfo.nDim = nDim;
+    
+    simInfo.deltat = 0.001;
+    simInfo.simTime = 0.0;
     
     
     double timed;
@@ -109,6 +112,11 @@ int main(int argc, const char * argv[])
     for (int i = 0; i<listofparticles.size(); i++)
     {
         //cout<< "the change in density at x = " << listofparticles[i]->position[0]<< " , y = "<< listofparticles[i]->position[1]<< " is " << listofparticles[i]->drhodt[0]<< " \n";
+        if (listofparticles[i]->position[0] > 0.499 && listofparticles[i]->position[0] < 0.501 && listofparticles[i]->position[1] > 0.499 && listofparticles[i]->position[1]< 0.501)
+        {
+            cout<< "the pressure at "<< i << " " << listofparticles[i]->position[0] << " " << listofparticles[i]->position[1] <<" is " << listofparticles[i]->pressure[0] << ") \n";
+        }
+        
     }
     
     

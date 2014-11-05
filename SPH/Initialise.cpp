@@ -37,14 +37,14 @@ void createWall(std::vector<Particle*>* plist, std::array<double, 3> start, std:
 
 void createFuid(std::vector<Particle*>* plist, std::array<double, 3> start, std::array<double, 3> finish, infoModule* module)
 {
-    for (double i = start[0]; i <= finish[0]; i = i + module->deltax)
+    for (double i = start[0]; i <= finish[0]+0.00001; i = i + module->deltax)
     {
-        for (double j = start[1]; j<= finish[1]; j = j + module->deltax)
+        for (double j = start[1]; j<= finish[1]+0.00001; j = j + module->deltax)
         {
-            for (double k = start[2]; k<= finish[2]; k = k + module->deltax)
+            for (double k = start[2]; k<= finish[2]+0.00001; k = k + module->deltax)
             {
                 //**************************************************************************************************
-                plist->push_back(new Particle({i,j}, {0.0,0.0}, {module->rho0*module->deltax, 0.0 , module->rho0}));
+                plist->push_back(new Particle({i,j}, {0.0,0.0}, {module->rho0*module->deltax, 0.0, module->rho0}));
                 //**************************************************************************************************
             }
             
@@ -86,7 +86,13 @@ void initPressure(std::vector<Particle*> plist, infoModule* module)
             
             for (int n = 0; n< sub.size(); n++)
             {
-                sub[n]->pressure[0] = module->rho0 * 9.81 * (bigY - sub[n]->position[1] - 2*smallY);
+                
+                if (sub[n]->position[0] > 0.499 && sub[n]->position[0] < 0.501 && sub[n]->position[1] > 0.499 && sub[n]->position[1]< 0.501)
+                {
+                    cout<< "the pressure at "<< i << " " << sub[n]->position[0] << " " << sub[n]->position[1] <<" is " << sub[n]->pressure[0] << ") \n";
+                }
+                
+                sub[n]->pressure[0] = module->rho0 * 9.81 * (bigY - sub[n]->position[1]);
             }
             
             
@@ -98,6 +104,7 @@ void initPressure(std::vector<Particle*> plist, infoModule* module)
         if (remaining[i]->iswall == 1)
         {
             remaining.erase(remaining.begin()+i);
+            continue;
         }
         if (sub[0]->position[0] == remaining[i]->position[0] )
         {
