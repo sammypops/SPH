@@ -8,7 +8,7 @@
 
 #include "Momentum.h"
 
-void momentum(std::vector<Particle*> plist, infoModule* module)
+void findAccel(std::vector<Particle*> plist, infoModule* module)
 {
     double r;
     double dkernel;

@@ -16,6 +16,6 @@
 #include "Par.h"
 #include "Kernel.h"
 
-void momentum(std::vector<Particle*> plist, infoModule* module);
+void findAccel(std::vector<Particle*> plist, infoModule* module);
 
 #endif /* defined(__SPH__Momentum__) */

@@ -99,7 +99,7 @@ int main(int argc, const char * argv[])
     findDensity(listofparticles,&simInfo);
     
         
-    momentum(listofparticles,&simInfo);
+    findAccel(listofparticles,&simInfo);
     
     // output some stuff
     
