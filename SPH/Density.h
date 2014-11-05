@@ -12,10 +12,12 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
+#include <array>
 #include "MyStructs.h"
 #include "Par.h"
 #include "Kernel.h"
 
-void findDensity(std::vector<Particle*> plist, infoModule* module);
+void findDrhodt(std::vector<Particle*> plist, infoModule* module);
+void findDelP(std::vector<Particle*> plist, infoModule* module);
 
 #endif /* defined(__SPH__Density__) */

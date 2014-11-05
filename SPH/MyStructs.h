@@ -25,6 +25,7 @@ struct infoModule{
     double deltat;
     
     int nDim;
+    int nWallPar;
     
 };
 

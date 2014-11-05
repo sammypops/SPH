@@ -15,5 +15,6 @@
 #include "MyStructs.h"
 #include "Momentum.h"
 
+void densityTimeStep(std::vector<Particle*> plist, infoModule* module);
 
 #endif /* defined(__SPH__Timestep__) */

@@ -20,6 +20,7 @@ public:
     std::array<double, 3> drhodt;
     std::array<double,1> m;
     std::array<double, 1>  pressure;
+    std::array<double, 3> delP;
     std::array<double, 1>  density;
     
     

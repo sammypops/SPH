@@ -22,6 +22,7 @@ using namespace std;
 void createWall(std::vector<Particle*>* plist, std::array<double, 3> start, std::array<double, 3> finish, infoModule* module);
 void createFuid(std::vector<Particle*>* plist, std::array<double, 3> start, std::array<double, 3> finish, infoModule* module);
 void initPressure(std::vector<Particle*> plist, infoModule* module);
+void initWallPressure(std::vector<Particle*> plist, infoModule* module);
 
 
 

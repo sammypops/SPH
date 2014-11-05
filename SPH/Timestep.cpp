@@ -12,6 +12,19 @@ void densityTimeStep(std::vector<Particle*> plist, infoModule* module)
 {
     double k1,k2,k3,k4;
     double t = module->deltat;
+    //runge kutta method
+    for (int i = 0; i < plist.size(); i++)
+    {
+        k1 = plist[i]->density[0];
+        
+        k2 = plist[i]->density[0] + 0.5*t*plist[i]->drhodt[0] + 0.5*t*k1;
+        
+        k3 = plist[i]->density[0] + 0.5*t*plist[i]->drhodt[0] + 0.5*t*k2;
+        
+        k4 = plist[i]->density[0] + t*plist[i]->drhodt[0] + t*k3;
+        
+        plist[i]->density[0] = plist[i]->density[0] + (t/6.0)*(k1 + 2*k2 + 2*k3 + k4);
+    }
     
     
 }
@@ -51,6 +64,10 @@ void Beemans(std::vector<Particle*> plist, infoModule* module)
     
     for (int i = 0; i<plist.size(); i++)
     {
+        // don't include the wall particles maybe?
+        if (plist[i]->iswall == 1) {
+            continue;
+        }
         //correct velocities for use in positions next time
         for (int Dim = 0; Dim < module->nDim; Dim++)
         {

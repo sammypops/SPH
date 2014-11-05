@@ -18,6 +18,7 @@
 #include "MyStructs.h"
 #include "Initialise.h"
 #include "Density.h"
+#include "Timestep.h"
 
 
 
@@ -68,6 +69,8 @@ int main(int argc, const char * argv[])
     createWall(&listofparticles, {-3.0*deltax,deltax,0}, {-deltax,2+3.0*deltax,0}, &simInfo);
     createWall(&listofparticles, {2 + deltax,deltax,0}, {2 + 3*deltax,2+3.0*deltax,0}, &simInfo);
     
+    simInfo.nWallPar = int(listofparticles.size());
+    
     cout<<"Particle wall initialisation finished \n"<< listofparticles.size() <<" Particles \n \n";
     
     createFuid(&listofparticles, {0,0,0}, {1,1,0}, &simInfo);
@@ -88,18 +91,22 @@ int main(int argc, const char * argv[])
     timed = t / (double) CLOCKS_PER_SEC;
     cout<<"Neighbours found in "<< timed/8 << " seconds \n \n";
     
+    initWallPressure(listofparticles, &simInfo);
     
+    /*
     cout<<"Updating neighbours \n \n";
     t = clock();
     updateNeighboursMT8(listofparticles, &simInfo);
     t = (clock() - t);
     timed = t / (double) CLOCKS_PER_SEC;
     cout<<"Neighbours found in "<< timed/8 << " seconds \n \n";
-    
+    */
     
     // calculate drho/dt by summing over neighbours
     
-    findDensity(listofparticles,&simInfo);
+    findDrhodt(listofparticles,&simInfo);
+    
+    
     
         
     findAccel(listofparticles,&simInfo);

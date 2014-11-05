@@ -86,12 +86,6 @@ void initPressure(std::vector<Particle*> plist, infoModule* module)
             
             for (int n = 0; n< sub.size(); n++)
             {
-                
-                if (sub[n]->position[0] > 0.499 && sub[n]->position[0] < 0.501 && sub[n]->position[1] > 0.499 && sub[n]->position[1]< 0.501)
-                {
-                    cout<< "the pressure at "<< i << " " << sub[n]->position[0] << " " << sub[n]->position[1] <<" is " << sub[n]->pressure[0] << ") \n";
-                }
-                
                 sub[n]->pressure[0] = module->rho0 * 9.81 * (bigY - sub[n]->position[1]);
             }
             
@@ -126,6 +120,42 @@ void initPressure(std::vector<Particle*> plist, infoModule* module)
     
     
     
+}
+/*
+    To initialise the wall pressure, we take the neighbouring particles which 
+    are not wall particles and take the average of their pressure
+ 
+    initPressure and the neighbour search must be run before this and 
+    the wall must have been added before the fluid
+ */
+void initWallPressure(std::vector<Particle*> plist, infoModule* module)
+{
+    double sum;
+    int total;
+    for (int i = 0 ; i < module->nWallPar; i++)
+    {
+        sum = 0.0;
+        total = 0;
+        for (int j = 0; j < plist[i]->neighbours.size(); j++)
+        {
+            if (plist[i]->neighbours[j]->iswall == 0)
+            {
+                sum = sum + plist[i]->neighbours[j]->pressure[0];
+                total++;
+            }
+        }
+        
+        if (total == 0)
+        {
+            plist[i]->pressure[0] = 0.0;
+            continue;
+        }
+        else
+        {
+            plist[i]->pressure[0] = double(sum/total);
+        }
+        
+    }
 }
 
 
