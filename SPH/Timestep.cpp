@@ -7,3 +7,16 @@
 //
 
 #include "Timestep.h"
+
+void densityTimeStep(std::vector<Particle*> plist, infoModule* module)
+{
+    double k1,k2,k3,k4;
+    double t = module->deltat;
+    
+    
+}
+
+void Beemans(std::vector<Particle*> plist, infoModule* module)
+{
+    
+}

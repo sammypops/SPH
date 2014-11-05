@@ -46,6 +46,7 @@ void findAccel(std::vector<Particle*> plist, infoModule* module)
         
         for (int Dim = 0; Dim < module->nDim; Dim++)
         {
+            plist[i]->prevAccel[Dim] = plist[i]->accel[Dim];
             plist[i]->accel[Dim] = sum[Dim];
         }
         
