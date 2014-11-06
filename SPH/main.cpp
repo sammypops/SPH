@@ -19,6 +19,7 @@
 #include "Initialise.h"
 #include "Density.h"
 #include "Timestep.h"
+#include "output.h"
 
 
 
@@ -34,7 +35,7 @@ int main(int argc, const char * argv[])
     
     
     double rho0 = 1000.;
-    double deltax = 0.05;
+    double deltax = 0.1;
     double h = 1.3*deltax;
     
     int nDim = 2;
@@ -51,6 +52,15 @@ int main(int argc, const char * argv[])
     simInfo.deltat = 0.001;
     simInfo.simTime = 0.0;
     simInfo.finishTime = 1.008;
+    simInfo.outputTime = 0.001;
+    
+    simInfo.fileN = 0;
+    simInfo.iterationN = 0;
+    
+    simInfo.finishIteration = int(floor(simInfo.finishTime/simInfo.deltat));
+    
+    simInfo.outputIteration = int(floor(simInfo.outputTime/simInfo.deltat));
+    
     
     
     double timed;
@@ -66,9 +76,9 @@ int main(int argc, const char * argv[])
     // create particles and initialise them
     cout<<"Beginning particle initialisation \n \n";
     
-    createWall(&listofparticles, {-3.0*deltax,-3.0*deltax,0}, {2+3.0*deltax,-deltax,0}, &simInfo);
-    createWall(&listofparticles, {-3.0*deltax,deltax,0}, {-deltax,2+3.0*deltax,0}, &simInfo);
-    createWall(&listofparticles, {2 + deltax,deltax,0}, {2 + 3*deltax,2+3.0*deltax,0}, &simInfo);
+    createWall(&listofparticles, {-3.0*deltax,-3.0*deltax,0}, {2+3.0*deltax,0,0}, &simInfo);
+    createWall(&listofparticles, {-3.0*deltax,0,0}, {-deltax,2+3.0*deltax,0}, &simInfo);
+    createWall(&listofparticles, {2 + deltax,0,0}, {2 + 3*deltax,2+3.0*deltax,0}, &simInfo);
     
     simInfo.nWallPar = int(listofparticles.size());
     
@@ -103,26 +113,29 @@ int main(int argc, const char * argv[])
     cout<<"Neighbours found in "<< timed/8 << " seconds \n \n";
     */
     
-    // calculate drho/dt by summing over neighbours
     
-    findDrhodt(listofparticles,&simInfo);
         
     findAccel(listofparticles,&simInfo);
     
     
-    for (simInfo.simTime = 0.0; simInfo.simTime < simInfo.finishTime; simInfo.simTime = simInfo.simTime + simInfo.deltat)
+    for (simInfo.iterationN = 0; simInfo.iterationN < simInfo.finishIteration; simInfo.iterationN++)
     {
-        /*
-        if (simInfo.simTime == 0.0 || simInfo.simTime % 0.016 == 0.0)
+        
+        if (simInfo.iterationN == 0 || simInfo.iterationN % simInfo.outputIteration == 0 )
         {
-            
+            writeParticles(listofparticles, &simInfo);
+            simInfo.fileN++;
         }
-         */
+        
     
         Beemans(listofparticles, &simInfo);
         FNMT8(listofparticles, &simInfo);
         cout << simInfo.simTime << endl;
+        
         //updateNeighboursMT8(listofparticles, &simInfo);
+        
+        simInfo.simTime = simInfo.simTime + simInfo.deltat;
+        
     }
     
     
@@ -132,7 +145,6 @@ int main(int argc, const char * argv[])
     
     // output some stuff
     
-    cout<< "particle 0's position is (" << listofparticles[0]->position[0] << "," << listofparticles[0]->position[1] << ") \n";
     
     
     for (int i = 0; i<listofparticles.size(); i++)

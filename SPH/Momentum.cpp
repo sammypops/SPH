@@ -34,7 +34,13 @@ void findAccel(std::vector<Particle*> plist, infoModule* module)
             {
                 dxdr = (plist[i]->position[Dim] - plist[i]->neighbours[j]-> position[Dim])/r;
                 //momentum eqn
-                sum[Dim] = sum[Dim] - (plist[i]->neighbours[j]->m[0]*(p_j/pow(rho_j, 2) + p_i/pow(rho_i, 2)) * dxdr * dkernel);
+                sum[Dim] =  - (plist[i]->neighbours[j]->m[0]*(p_j/pow(rho_j, 2) + p_i/pow(rho_i, 2)) * dxdr * dkernel);
+                
+                // gravity?
+                if (Dim -1 == module->nDim)
+                {
+                    sum[Dim] = sum[Dim] - 9.81;
+                }
             }
             
             
@@ -76,7 +82,14 @@ void findNextAccel(std::vector<Particle*> plist, infoModule* module)
             {
                 dxdr = (plist[i]->position[Dim] - plist[i]->neighbours[j]-> position[Dim])/r;
                 //momentum eqn
-                sum[Dim] = sum[Dim] - (plist[i]->neighbours[j]->m[0]*(p_j/pow(rho_j, 2) + p_i/pow(rho_i, 2)) * dxdr * dkernel);
+                sum[Dim] = -1*(plist[i]->neighbours[j]->m[0]*(p_j/pow(rho_j, 2) + p_i/pow(rho_i, 2)) * dxdr * dkernel);
+                
+                // gravity?
+                if (Dim -1 == module->nDim)
+                {
+                    sum[Dim] = sum[Dim] - 9.81;
+                }
+                
             }
             
             

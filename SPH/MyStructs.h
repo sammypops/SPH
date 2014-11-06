@@ -24,9 +24,14 @@ struct infoModule{
     double simTime;
     double finishTime;
     double deltat;
+    double outputTime;
     
     int nDim;
     int nWallPar;
+    int fileN;
+    int iterationN;
+    int finishIteration;
+    int outputIteration;
     
 };
 
