@@ -18,6 +18,10 @@ void findAccel(std::vector<Particle*> plist, infoModule* module)
     
     for (int i = 0; i<plist.size(); i++)
     {
+        if (plist[i]->iswall == 1)
+        {
+            continue;
+        }
         sum[0] = 0.0;
         sum[1] = 0.0;
         sum[2] = 0.0;
@@ -36,8 +40,8 @@ void findAccel(std::vector<Particle*> plist, infoModule* module)
                 //momentum eqn
                 sum[Dim] =  - (plist[i]->neighbours[j]->m[0]*(p_j/pow(rho_j, 2) + p_i/pow(rho_i, 2)) * dxdr * dkernel);
                 
-                // gravity?
-                if (Dim -1 == module->nDim)
+                // gravity acts in y in 2d and in z in 3d
+                if (Dim == module->nDim -1)
                 {
                     sum[Dim] = sum[Dim] - 9.81;
                 }
@@ -66,6 +70,10 @@ void findNextAccel(std::vector<Particle*> plist, infoModule* module)
     
     for (int i = 0; i<plist.size(); i++)
     {
+        if (plist[i]->iswall == 1)
+        {
+            continue;
+        }
         sum[0] = 0.0;
         sum[1] = 0.0;
         sum[2] = 0.0;
@@ -85,7 +93,7 @@ void findNextAccel(std::vector<Particle*> plist, infoModule* module)
                 sum[Dim] = -1*(plist[i]->neighbours[j]->m[0]*(p_j/pow(rho_j, 2) + p_i/pow(rho_i, 2)) * dxdr * dkernel);
                 
                 // gravity?
-                if (Dim -1 == module->nDim)
+                if (Dim  == module->nDim -1)
                 {
                     sum[Dim] = sum[Dim] - 9.81;
                 }

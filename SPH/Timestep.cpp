@@ -69,27 +69,33 @@ void Beemans(std::vector<Particle*> plist, infoModule* module)
     for (int i = 0; i<plist.size(); i++)
     {
         // don't include the wall particles maybe?
-        if (plist[i]->iswall == 0)
+        if (plist[i]->iswall == 1)
         {
+            continue;
+        }
             // calculate the next positions
             for (int Dim = 0; Dim < module->nDim; Dim++)
             {
                 plist[i]->dr[Dim] = plist[i]->vel[Dim]*t + (2.0/3.0)*plist[i]->accel[Dim]*pow(t, 2) - (1.0/6.0)*plist[i]->prevAccel[Dim]*pow(t, 2);
                 plist[i]->position[Dim] = plist[i]->position[Dim] + plist[i]->dr[Dim];
             }
-        }
+            
+            // predict the next velocities
+            for (int Dim = 0; Dim < module->nDim; Dim++)
+            {
+                plist[i]->vel[Dim] = plist[i]->vel[Dim] + plist[i]->vel[Dim]*t + (3.0/2.0)*plist[i]->accel[Dim]*t - (1.0/2.0)*plist[i]->prevAccel[Dim]*t;
+            }
         
         
-        // predict the next velocities
-        for (int Dim = 0; Dim < module->nDim; Dim++)
-        {
-            plist[i]->vel[Dim] = plist[i]->vel[Dim] + plist[i]->vel[Dim]*t + (3.0/2.0)*plist[i]->accel[Dim]*t - (1.0/2.0)*plist[i]->prevAccel[Dim]*t;
-        }
+        
+        
     }
     
         // use this velocity to get new forces
     
         pressureTimeStep(plist,module); // get new pressures
+    
+        findDrhodt(plist, module);
     
         densityTimeStep(plist, module); // get new densities
     
@@ -100,8 +106,9 @@ void Beemans(std::vector<Particle*> plist, infoModule* module)
     
     for (int i = 0; i<plist.size(); i++)
     {
-        // don't include the wall particles maybe?
-        if (plist[i]->iswall == 1) {
+        // don't include the wall particles
+        if (plist[i]->iswall == 1)
+        {
             continue;
         }
         //correct velocities for use in positions next time

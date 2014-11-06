@@ -76,9 +76,9 @@ int main(int argc, const char * argv[])
     // create particles and initialise them
     cout<<"Beginning particle initialisation \n \n";
     
-    createWall(&listofparticles, {-3.0*deltax,-3.0*deltax,0}, {2+3.0*deltax,0,0}, &simInfo);
-    createWall(&listofparticles, {-3.0*deltax,0,0}, {-deltax,2+3.0*deltax,0}, &simInfo);
-    createWall(&listofparticles, {2 + deltax,0,0}, {2 + 3*deltax,2+3.0*deltax,0}, &simInfo);
+    createWall(&listofparticles, {-3.0*deltax/2,-3.0*deltax/2,0}, {2+1.5*deltax,-deltax/2,0}, &simInfo);
+    createWall(&listofparticles, {-3.0*deltax/2,0,0}, {-deltax/2,2+1.5*deltax,0}, &simInfo);
+    createWall(&listofparticles, {2 + deltax/2,0,0}, {2 + 1.5*deltax,2+1.5*deltax,0}, &simInfo);
     
     simInfo.nWallPar = int(listofparticles.size());
     
@@ -130,7 +130,8 @@ int main(int argc, const char * argv[])
     
         Beemans(listofparticles, &simInfo);
         FNMT8(listofparticles, &simInfo);
-        cout << simInfo.simTime << endl;
+        cout << simInfo.simTime << " P = " << listofparticles[797]->pressure[0] << endl;
+        //initWallPressure(listofparticles, &simInfo);
         
         //updateNeighboursMT8(listofparticles, &simInfo);
         
