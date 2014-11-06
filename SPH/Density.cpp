@@ -58,6 +58,10 @@ void findDelP(std::vector<Particle*> plist, infoModule* module)
     
     for (int n = 0; n<plist.size(); n++)
     {
+        if (plist[n]->iswall == 1)
+        {
+            continue;
+        }
          sum[0] = 0.0;
          sum[1] = 0.0;
          sum[2] = 0.0;
