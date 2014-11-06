@@ -49,7 +49,7 @@ int main(int argc, const char * argv[])
     simInfo.rho0 = rho0;
     simInfo.nDim = nDim;
     
-    simInfo.deltat = 0.001;
+    simInfo.deltat = 0.0001;
     simInfo.simTime = 0.0;
     simInfo.finishTime = 1.008;
     simInfo.outputTime = 0.001;
@@ -102,7 +102,7 @@ int main(int argc, const char * argv[])
     timed = t / (double) CLOCKS_PER_SEC;
     cout<<"Neighbours found in "<< timed/8 << " seconds \n \n";
     
-    initWallPressure(listofparticles, &simInfo);
+    //initWallPressure(listofparticles, &simInfo);
     
     /*
     cout<<"Updating neighbours \n \n";

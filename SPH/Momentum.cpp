@@ -16,6 +16,8 @@ std::array<double,3> acceleration (int i,std::vector<Particle*> plist, infoModul
     double dxdr;
     double p_i, p_j, rho_i, rho_j;
     
+    sum.fill(0.0);
+    
     p_i = plist[i]->pressure[0];
     rho_i = plist[i]->density[0];
     
@@ -47,13 +49,8 @@ void findAccel(std::vector<Particle*> plist, infoModule* module)
     
     for (int i = 0; i<plist.size(); i++)
     {
-        if (plist[i]->iswall == 1)
-        {
-            continue;
-        }
-        dvdt[0] = 0.0;
-        dvdt[1] = 0.0;
-        dvdt[2] = 0.0;
+        
+        dvdt.fill(0.0);
         
         dvdt = acceleration(i, plist, module);
         
@@ -75,13 +72,8 @@ void findNextAccel(std::vector<Particle*> plist, infoModule* module)
     
     for (int i = 0; i<plist.size(); i++)
     {
-        if (plist[i]->iswall == 1)
-        {
-            continue;
-        }
-        dvdt[0] = 0.0;
-        dvdt[1] = 0.0;
-        dvdt[2] = 0.0;
+        
+        dvdt.fill(0.0);
         
         dvdt = acceleration(i, plist, module);
         

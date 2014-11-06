@@ -69,10 +69,8 @@ void Beemans(std::vector<Particle*> plist, infoModule* module)
     for (int i = 0; i<plist.size(); i++)
     {
         // don't include the wall particles maybe?
-        if (plist[i]->iswall == 1)
+        if (plist[i]->iswall == 0)
         {
-            continue;
-        }
             // calculate the next positions
             for (int Dim = 0; Dim < module->nDim; Dim++)
             {
@@ -80,6 +78,8 @@ void Beemans(std::vector<Particle*> plist, infoModule* module)
                 plist[i]->position[Dim] = plist[i]->position[Dim] + plist[i]->dr[Dim];
             }
             
+        }
+        
             // predict the next velocities
             for (int Dim = 0; Dim < module->nDim; Dim++)
             {
@@ -106,11 +106,6 @@ void Beemans(std::vector<Particle*> plist, infoModule* module)
     
     for (int i = 0; i<plist.size(); i++)
     {
-        // don't include the wall particles
-        if (plist[i]->iswall == 1)
-        {
-            continue;
-        }
         //correct velocities for use in positions next time
         for (int Dim = 0; Dim < module->nDim; Dim++)
         {

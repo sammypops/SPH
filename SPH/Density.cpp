@@ -62,9 +62,7 @@ void findDelP(std::vector<Particle*> plist, infoModule* module)
         {
             continue;
         }
-         sum[0] = 0.0;
-         sum[1] = 0.0;
-         sum[2] = 0.0;
+        sum.fill(0.0);
         
         for (int m=0; m<plist[n]->neighbours.size(); m++)
         {

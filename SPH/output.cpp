@@ -16,7 +16,9 @@ void writeParticles(std::vector<Particle*> plist, infoModule* module)
     
     string baseName = "Par";
     char NUM[4];
-    int c = sprintf(NUM,"%04d",module->fileN);
+    int c;
+    
+    c = sprintf(NUM,"%04d",module->fileN);
     
     myfile.open ("/Users/Sam/Desktop/SPH/SPH/output/" +baseName + NUM+ ".txt");
     

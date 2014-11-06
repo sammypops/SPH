@@ -86,7 +86,7 @@ void initPressure(std::vector<Particle*> plist, infoModule* module)
             
             for (int n = 0; n< sub.size(); n++)
             {
-                sub[n]->pressure[0] = module->rho0 * 9.81 * (bigY - sub[n]->position[1]);
+                sub[n]->pressure[0] =  module->rho0 * 9.81 * (bigY - sub[n]->position[1]);
             }
             
             
