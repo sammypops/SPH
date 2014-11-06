@@ -18,10 +18,6 @@ void findAccel(std::vector<Particle*> plist, infoModule* module)
     
     for (int i = 0; i<plist.size(); i++)
     {
-        // don't include the wall particles maybe?
-        if (plist[i]->iswall == 1) {
-            continue;
-        }
         sum[0] = 0.0;
         sum[1] = 0.0;
         sum[2] = 0.0;
@@ -64,10 +60,6 @@ void findNextAccel(std::vector<Particle*> plist, infoModule* module)
     
     for (int i = 0; i<plist.size(); i++)
     {
-        // don't include the wall particles maybe?
-        if (plist[i]->iswall == 1) {
-            continue;
-        }
         sum[0] = 0.0;
         sum[1] = 0.0;
         sum[2] = 0.0;

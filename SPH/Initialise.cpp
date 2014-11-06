@@ -14,11 +14,11 @@
 
 void createWall(std::vector<Particle*>* plist, std::array<double, 3> start, std::array<double, 3> finish, infoModule* module)
 {
-    for (double i = start[0]; i <= finish[0]; i = i + module->deltax)
+    for (double i = start[0]; i <= finish[0]; i = i + module->deltax/2)
     {
-        for (double j = start[1]; j<= finish[1]; j = j + module->deltax)
+        for (double j = start[1]; j<= finish[1]; j = j + module->deltax/2)
         {
-            for (double k = start[2]; k<= finish[2]; k = k + module->deltax)
+            for (double k = start[2]; k<= finish[2]; k = k + module->deltax/2)
             {
                 //******************************************************************************************
                 plist->push_back(new Particle(1, {i,j}, {module->rho0*module->deltax, 0.0 , module->rho0})); // uses the wall constructor

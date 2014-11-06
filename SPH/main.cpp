@@ -50,6 +50,7 @@ int main(int argc, const char * argv[])
     
     simInfo.deltat = 0.001;
     simInfo.simTime = 0.0;
+    simInfo.finishTime = 1.008;
     
     
     double timed;
@@ -105,11 +106,29 @@ int main(int argc, const char * argv[])
     // calculate drho/dt by summing over neighbours
     
     findDrhodt(listofparticles,&simInfo);
-    
-    
-    
         
     findAccel(listofparticles,&simInfo);
+    
+    
+    for (simInfo.simTime = 0.0; simInfo.simTime < simInfo.finishTime; simInfo.simTime = simInfo.simTime + simInfo.deltat)
+    {
+        /*
+        if (simInfo.simTime == 0.0 || simInfo.simTime % 0.016 == 0.0)
+        {
+            
+        }
+         */
+    
+        Beemans(listofparticles, &simInfo);
+        FNMT8(listofparticles, &simInfo);
+        cout << simInfo.simTime << endl;
+        //updateNeighboursMT8(listofparticles, &simInfo);
+    }
+    
+    
+    
+    
+    
     
     // output some stuff
     
@@ -119,7 +138,7 @@ int main(int argc, const char * argv[])
     for (int i = 0; i<listofparticles.size(); i++)
     {
         //cout<< "the change in density at x = " << listofparticles[i]->position[0]<< " , y = "<< listofparticles[i]->position[1]<< " is " << listofparticles[i]->drhodt[0]<< " \n";
-        if (listofparticles[i]->position[0] > 0.499 && listofparticles[i]->position[0] < 0.501 && listofparticles[i]->position[1] > 0.499 && listofparticles[i]->position[1]< 0.501)
+        if (listofparticles[i]->position[0] > 0.495 && listofparticles[i]->position[0] < 0.505 && listofparticles[i]->position[1] > 0.495 && listofparticles[i]->position[1]< 0.505)
         {
             cout<< "the pressure at "<< i << " " << listofparticles[i]->position[0] << " " << listofparticles[i]->position[1] <<" is " << listofparticles[i]->pressure[0] << ") \n";
         }

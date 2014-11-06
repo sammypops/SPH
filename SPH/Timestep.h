@@ -17,6 +17,7 @@
 #include "Momentum.h"
 #include "Density.h"
 
-void densityTimeStep(std::vector<Particle*> plist, infoModule* module);
+
+void Beemans(std::vector<Particle*> plist, infoModule* module);
 
 #endif /* defined(__SPH__Timestep__) */

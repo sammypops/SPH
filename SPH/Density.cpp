@@ -85,7 +85,7 @@ void findDelP(std::vector<Particle*> plist, infoModule* module)
             
         }
         
-        // write drho/dt after summing over all of the particles
+        // write delP after summing over all of the particles
         plist[n]->delP = sum;
     }
     

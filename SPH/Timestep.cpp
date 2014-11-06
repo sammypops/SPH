@@ -53,7 +53,7 @@ void pressureTimeStep(std::vector<Particle*> plist, infoModule* module)
             sum = sum + (plist[i]->dr[Dim]/6.0)*(k1 + 2*k2 + 2*k3 + k4);
         }
         
-        plist[i]->pressure[0] = sum;
+        plist[i]->pressure[0] = plist[i]->pressure[0] + sum;
         
     }
 }
@@ -69,16 +69,17 @@ void Beemans(std::vector<Particle*> plist, infoModule* module)
     for (int i = 0; i<plist.size(); i++)
     {
         // don't include the wall particles maybe?
-        if (plist[i]->iswall == 1) {
-            continue;
+        if (plist[i]->iswall == 0)
+        {
+            // calculate the next positions
+            for (int Dim = 0; Dim < module->nDim; Dim++)
+            {
+                plist[i]->dr[Dim] = plist[i]->vel[Dim]*t + (2.0/3.0)*plist[i]->accel[Dim]*pow(t, 2) - (1.0/6.0)*plist[i]->prevAccel[Dim]*pow(t, 2);
+                plist[i]->position[Dim] = plist[i]->position[Dim] + plist[i]->dr[Dim];
+            }
         }
         
-        // calculate the next positions
-        for (int Dim = 0; Dim < module->nDim; Dim++)
-        {
-            plist[i]->dr[Dim] = plist[i]->vel[Dim]*t + (2.0/3.0)*plist[i]->accel[Dim]*pow(t, 2) - (1.0/6.0)*plist[i]->prevAccel[Dim]*pow(t, 2);
-            plist[i]->position[Dim] = plist[i]->position[Dim] + plist[i]->dr[Dim];
-        }
+        
         // predict the next velocities
         for (int Dim = 0; Dim < module->nDim; Dim++)
         {
@@ -91,8 +92,6 @@ void Beemans(std::vector<Particle*> plist, infoModule* module)
         pressureTimeStep(plist,module); // get new pressures
     
         densityTimeStep(plist, module); // get new densities
-    
-        
     
         
         // work out the next acceleration
