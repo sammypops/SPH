@@ -16,30 +16,21 @@ class Particle {
 public:
     std::array<double, 3>  position;
     std::array<double, 3>  vel;
-    std::array<double, 3> accel, nextAccel, prevAccel;
-    std::array<double, 3> drhodt;
-    std::array<double,1> m;
+    std::array<double, 3> accel, nextAccel, prevAccel; // acceleration storage for timestep
+    std::array<double, 3> drhodt; // change in density over time
+    std::array<double,1> m; // mass of particle
     std::array<double, 1>  pressure;
-    std::array<double, 3> delP;
-    std::array<double, 1>  density;
+    std::array<double, 3> delP; // the pressure gradient
+    std::array<double, 3> dr; // the distance moved in the timestep
+    std::array<double, 1>  density; // the current density
     
     
     std::vector<Particle*> neighbours;
     std::vector<double> neighboursdist;
     
-    int iswall;
+    int iswall; // 1 = wall, 0 = fluid
     
 public:
-    Particle()
-    {
-        position[0] = 0.0;
-        position[1] = 0.0;
-        
-        iswall = 0;
-        
-        vel[0] = 0.0;
-        vel[1] = 0.0;
-    }
     Particle(std::array<double, 3> posn, std::array<double, 3> velocity, std::array<double, 3> init)// {x,y},{u,v},{m,pressure,density}
     {
         iswall = 0;

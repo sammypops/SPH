@@ -11,9 +11,11 @@
 
 #include <iostream>
 #include <cmath>
+#include <vector>
 #include "Par.h"
 #include "MyStructs.h"
 #include "Momentum.h"
+#include "Density.h"
 
 void densityTimeStep(std::vector<Particle*> plist, infoModule* module);
 
