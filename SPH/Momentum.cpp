@@ -24,6 +24,10 @@ std::array<double,3> acceleration (int i,std::vector<Particle*> plist, infoModul
     for (int j = 0; j<plist[i]->neighbours.size(); j++)
     {
         r = plist[i]->neighboursdist[j];
+        if (r == 0.0)
+        {
+            continue;
+        }
         dkernel = wendkernel(r,  module);
         p_j = plist[i]->neighbours[j]->pressure[0];
         rho_j = plist[i]->neighbours[j]->density[0];

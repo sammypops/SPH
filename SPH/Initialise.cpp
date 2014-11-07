@@ -14,17 +14,38 @@
 
 void createWall(std::vector<Particle*>* plist, std::array<double, 3> start, std::array<double, 3> finish, infoModule* module)
 {
-    for (double i = start[0]; i <= finish[0]; i = i + module->deltax/3)
+    for (double i = start[0]; i <= finish[0]; i = i + module->deltax)
     {
-        for (double j = start[1]; j<= finish[1]; j = j + module->deltax/3)
+        for (double j = start[1]; j<= finish[1]; j = j + module->deltax)
         {
-            for (double k = start[2]; k<= finish[2]; k = k + module->deltax/3)
+            for (double k = start[2]; k<= finish[2]; k = k + module->deltax)
             {
                 //******************************************************************************************
                 plist->push_back(new Particle(1, {i,j}, {module->rho0*module->deltax, 0.0 , module->rho0})); // uses the wall constructor
                 //******************************************************************************************
             }
             
+        }
+        
+    }
+    
+}
+
+void createLine2D(std::vector<Particle*>* plist, std::array<double, 2> len, int dim, double line, infoModule* module)
+{
+    for (double i = len[0]; i <= len[1]; i = i+ module->deltax/10)
+    {
+        if (dim == 0)
+        {
+            //******************************************************************************************
+            plist->push_back(new Particle(1, {line,i}, {module->rho0*module->deltax/10, 0.0 , module->rho0})); // uses the wall constructor
+            //******************************************************************************************
+        }
+        else if (dim == 1)
+        {
+            //******************************************************************************************
+            plist->push_back(new Particle(1, {i,line}, {module->rho0*module->deltax/10, 0.0 , module->rho0})); // uses the wall constructor
+            //******************************************************************************************
         }
         
     }
