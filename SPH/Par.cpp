@@ -15,7 +15,7 @@ class Particle {
     int a;
 public:
     std::array<double, 3>  position;
-    std::array<double, 3>  vel;
+    std::array<double, 3>  vel, velOld;
     std::array<double, 3> accel, nextAccel, prevAccel; // acceleration storage for timestep
     std::array<double, 3> drhodt; // change in density over time
     std::array<double,1> m; // mass of particle

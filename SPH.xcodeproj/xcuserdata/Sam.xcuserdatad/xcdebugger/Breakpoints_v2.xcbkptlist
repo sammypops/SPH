@@ -26,11 +26,25 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SPH/main.cpp"
-            timestampString = "437012845.176507"
+            timestampString = "437076003.686718"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
+            startingLineNumber = "175"
+            endingLineNumber = "175">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SPH/main.cpp"
+            timestampString = "437076003.686718"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
             landmarkName = "main(int argc, const char * argv[])"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +56,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SPH/main.cpp"
-            timestampString = "437012845.176507"
+            timestampString = "437076003.686718"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "main(int argc, const char * argv[])"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,11 +72,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SPH/main.cpp"
-            timestampString = "436987583.327193"
+            timestampString = "437076003.686718"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "main(int argc, const char * argv[])"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,11 +88,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SPH/main.cpp"
-            timestampString = "436987583.327193"
+            timestampString = "437076003.686718"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
             landmarkName = "main(int argc, const char * argv[])"
             landmarkType = "7">
          </BreakpointContent>
@@ -90,13 +104,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SPH/main.cpp"
-            timestampString = "437012845.176507"
+            timestampString = "437076003.686718"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
-            landmarkName = "main(int argc, const char * argv[])"
-            landmarkType = "7">
+            startingLineNumber = "174"
+            endingLineNumber = "174">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -106,27 +118,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SPH/main.cpp"
-            timestampString = "437012845.176507"
+            timestampString = "437076003.686718"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
-            landmarkName = "main(int argc, const char * argv[])"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SPH/main.cpp"
-            timestampString = "437012845.176507"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
             landmarkName = "main(int argc, const char * argv[])"
             landmarkType = "7">
             <Locations>
@@ -210,23 +206,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SPH/main.cpp"
-            timestampString = "437012845.176507"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
-            landmarkName = "main(int argc, const char * argv[])"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SPH/main.cpp"
-            timestampString = "437012845.176507"
+            timestampString = "437076003.686718"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "112"
@@ -242,11 +222,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SPH/main.cpp"
-            timestampString = "437012845.176507"
+            timestampString = "437076003.686718"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "main(int argc, const char * argv[])"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SPH/main.cpp"
+            timestampString = "437076003.686718"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
             landmarkName = "main(int argc, const char * argv[])"
             landmarkType = "7">
          </BreakpointContent>
@@ -258,11 +254,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SPH/Initialise.cpp"
-            timestampString = "437012845.176507"
+            timestampString = "437056129.614222"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
             landmarkName = "initPressure(std::vector&lt;Particle*&gt; plist, infoModule* module)"
             landmarkType = "7">
             <Locations>
@@ -346,11 +342,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SPH/Initialise.cpp"
-            timestampString = "437012845.176507"
+            timestampString = "437056129.614222"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
             landmarkName = "initPressure(std::vector&lt;Particle*&gt; plist, infoModule* module)"
             landmarkType = "7">
          </BreakpointContent>
@@ -362,11 +358,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SPH/Initialise.cpp"
-            timestampString = "437012845.176507"
+            timestampString = "437056129.614222"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "initPressure(std::vector&lt;Particle*&gt; plist, infoModule* module)"
             landmarkType = "7">
             <Locations>
@@ -436,11 +432,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SPH/Initialise.cpp"
-            timestampString = "437012845.176507"
+            timestampString = "437056129.614222"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
             landmarkName = "initPressure(std::vector&lt;Particle*&gt; plist, infoModule* module)"
             landmarkType = "7">
          </BreakpointContent>
@@ -452,11 +448,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SPH/main.cpp"
-            timestampString = "437012845.176507"
+            timestampString = "437076003.686718"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
             landmarkName = "main(int argc, const char * argv[])"
             landmarkType = "7">
          </BreakpointContent>
@@ -468,11 +464,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SPH/main.cpp"
-            timestampString = "436987583.327193"
+            timestampString = "437076003.686718"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
             landmarkName = "main(int argc, const char * argv[])"
             landmarkType = "7">
          </BreakpointContent>
@@ -516,11 +512,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SPH/main.cpp"
-            timestampString = "437012845.176507"
+            timestampString = "437076003.686718"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
             landmarkName = "main(int argc, const char * argv[])"
             landmarkType = "7">
          </BreakpointContent>
@@ -547,11 +543,11 @@
                   symbolName = "findAccel(std::__1::vector&lt;Particle*, std::__1::allocator&lt;Particle*&gt; &gt;, infoModule*)"
                   moduleName = "SPH"
                   urlString = "file:///Users/Sam/Desktop/SPH/SPH/Momentum.cpp"
-                  timestampString = "437010745.875476"
+                  timestampString = "437076490.230358"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "58"
-                  endingLineNumber = "58"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
                   offsetFromSymbolStart = "398">
                </Location>
                <Location
@@ -561,12 +557,12 @@
                   symbolName = "findAccel(std::__1::vector&lt;Particle*, std::__1::allocator&lt;Particle*&gt; &gt;, infoModule*)"
                   moduleName = "SPH"
                   urlString = "file:///Users/Sam/Desktop/SPH/SPH/Momentum.cpp"
-                  timestampString = "437010745.875643"
+                  timestampString = "437076490.230654"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "58"
-                  endingLineNumber = "58"
-                  offsetFromSymbolStart = "433">
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "436">
                </Location>
                <Location
                   shouldBeEnabled = "No"
@@ -575,12 +571,12 @@
                   symbolName = "findAccel(std::__1::vector&lt;Particle*, std::__1::allocator&lt;Particle*&gt; &gt;, infoModule*)"
                   moduleName = "SPH"
                   urlString = "file:///Users/Sam/Desktop/SPH/SPH/Momentum.cpp"
-                  timestampString = "437010745.875782"
+                  timestampString = "437076490.230898"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "58"
-                  endingLineNumber = "58"
-                  offsetFromSymbolStart = "477">
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "483">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -694,11 +690,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SPH/Timestep.cpp"
-            timestampString = "437008199.884904"
+            timestampString = "437082967.783992"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
             landmarkName = "Beemans(std::vector&lt;Particle*&gt; plist, infoModule* module)"
             landmarkType = "7">
             <Locations>
@@ -862,178 +858,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SPH/Timestep.cpp"
-            timestampString = "437010527.182487"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "Beemans(std::vector&lt;Particle*&gt; plist, infoModule* module)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Beemans(std::__1::vector&lt;Particle*, std::__1::allocator&lt;Particle*&gt; &gt;, infoModule*)"
-                  moduleName = "SPH"
-                  urlString = "file:///Users/Sam/Desktop/SPH/SPH/Timestep.cpp"
-                  timestampString = "437011328.169141"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "86"
-                  endingLineNumber = "86"
-                  offsetFromSymbolStart = "1061">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Beemans(std::__1::vector&lt;Particle*, std::__1::allocator&lt;Particle*&gt; &gt;, infoModule*)"
-                  moduleName = "SPH"
-                  urlString = "file:///Users/Sam/Desktop/SPH/SPH/Timestep.cpp"
-                  timestampString = "437011328.169275"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "86"
-                  endingLineNumber = "86"
-                  offsetFromSymbolStart = "1094">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Beemans(std::__1::vector&lt;Particle*, std::__1::allocator&lt;Particle*&gt; &gt;, infoModule*)"
-                  moduleName = "SPH"
-                  urlString = "file:///Users/Sam/Desktop/SPH/SPH/Timestep.cpp"
-                  timestampString = "437011328.169408"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "86"
-                  endingLineNumber = "86"
-                  offsetFromSymbolStart = "1127">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Beemans(std::__1::vector&lt;Particle*, std::__1::allocator&lt;Particle*&gt; &gt;, infoModule*)"
-                  moduleName = "SPH"
-                  urlString = "file:///Users/Sam/Desktop/SPH/SPH/Timestep.cpp"
-                  timestampString = "437011328.169545"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "86"
-                  endingLineNumber = "86"
-                  offsetFromSymbolStart = "1158">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Beemans(std::__1::vector&lt;Particle*, std::__1::allocator&lt;Particle*&gt; &gt;, infoModule*)"
-                  moduleName = "SPH"
-                  urlString = "file:///Users/Sam/Desktop/SPH/SPH/Timestep.cpp"
-                  timestampString = "437011328.169674"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "86"
-                  endingLineNumber = "86"
-                  offsetFromSymbolStart = "1191">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Beemans(std::__1::vector&lt;Particle*, std::__1::allocator&lt;Particle*&gt; &gt;, infoModule*)"
-                  moduleName = "SPH"
-                  urlString = "file:///Users/Sam/Desktop/SPH/SPH/Timestep.cpp"
-                  timestampString = "437011328.169808"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "86"
-                  endingLineNumber = "86"
-                  offsetFromSymbolStart = "1234">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Beemans(std::__1::vector&lt;Particle*, std::__1::allocator&lt;Particle*&gt; &gt;, infoModule*)"
-                  moduleName = "SPH"
-                  urlString = "file:///Users/Sam/Desktop/SPH/SPH/Timestep.cpp"
-                  timestampString = "437011328.169942"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "86"
-                  endingLineNumber = "86"
-                  offsetFromSymbolStart = "1267">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Beemans(std::__1::vector&lt;Particle*, std::__1::allocator&lt;Particle*&gt; &gt;, infoModule*)"
-                  moduleName = "SPH"
-                  urlString = "file:///Users/Sam/Desktop/SPH/SPH/Timestep.cpp"
-                  timestampString = "437011328.170074"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "86"
-                  endingLineNumber = "86"
-                  offsetFromSymbolStart = "1310">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Beemans(std::__1::vector&lt;Particle*, std::__1::allocator&lt;Particle*&gt; &gt;, infoModule*)"
-                  moduleName = "SPH"
-                  urlString = "file:///Users/Sam/Desktop/SPH/SPH/Timestep.cpp"
-                  timestampString = "437011328.170206"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "86"
-                  endingLineNumber = "86"
-                  offsetFromSymbolStart = "1355">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Beemans(std::__1::vector&lt;Particle*, std::__1::allocator&lt;Particle*&gt; &gt;, infoModule*)"
-                  moduleName = "SPH"
-                  urlString = "file:///Users/Sam/Desktop/SPH/SPH/Timestep.cpp"
-                  timestampString = "437011328.170337"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "86"
-                  endingLineNumber = "86"
-                  offsetFromSymbolStart = "1410">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Beemans(std::__1::vector&lt;Particle*, std::__1::allocator&lt;Particle*&gt; &gt;, infoModule*)"
-                  moduleName = "SPH"
-                  urlString = "file:///Users/Sam/Desktop/SPH/SPH/Timestep.cpp"
-                  timestampString = "437011328.170465"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "86"
-                  endingLineNumber = "86"
-                  offsetFromSymbolStart = "1455">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -1120,6 +944,302 @@
             startingLineNumber = "44"
             endingLineNumber = "44"
             landmarkName = "acceleration (int i,std::vector&lt;Particle*&gt; plist, infoModule* module)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SPH/Momentum.cpp"
+            timestampString = "437076455.579739"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "findAccel(std::vector&lt;Particle*&gt; plist, infoModule* module)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "findAccel(std::__1::vector&lt;Particle*, std::__1::allocator&lt;Particle*&gt; &gt;, infoModule*)"
+                  moduleName = "SPH"
+                  urlString = "file:///Users/Sam/Desktop/SPH/SPH/Momentum.cpp"
+                  timestampString = "437076490.23116"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "488">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "findAccel(std::__1::vector&lt;Particle*, std::__1::allocator&lt;Particle*&gt; &gt;, infoModule*)"
+                  moduleName = "SPH"
+                  urlString = "file:///Users/Sam/Desktop/SPH/SPH/Momentum.cpp"
+                  timestampString = "437076490.231375"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "521">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "findAccel(std::__1::vector&lt;Particle*, std::__1::allocator&lt;Particle*&gt; &gt;, infoModule*)"
+                  moduleName = "SPH"
+                  urlString = "file:///Users/Sam/Desktop/SPH/SPH/Momentum.cpp"
+                  timestampString = "437076490.231629"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "551">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SPH/Timestep.cpp"
+            timestampString = "437080247.270808"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "densityStep(std::vector&lt;Particle*&gt; plist, infoModule* module)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "1350"
+            continueAfterRunningActions = "No"
+            filePath = "SPH/Timestep.cpp"
+            timestampString = "437080323.297945"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "densityStep(std::vector&lt;Particle*&gt; plist, infoModule* module)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "densityStep(std::__1::vector&lt;Particle*, std::__1::allocator&lt;Particle*&gt; &gt;, infoModule*)"
+                  moduleName = "SPH"
+                  urlString = "file:///Users/Sam/Desktop/SPH/SPH/Timestep.cpp"
+                  timestampString = "437080340.411506"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "360">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "densityStep(std::__1::vector&lt;Particle*, std::__1::allocator&lt;Particle*&gt; &gt;, infoModule*)"
+                  moduleName = "SPH"
+                  urlString = "file:///Users/Sam/Desktop/SPH/SPH/Timestep.cpp"
+                  timestampString = "437080340.411671"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "386">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "densityStep(std::__1::vector&lt;Particle*, std::__1::allocator&lt;Particle*&gt; &gt;, infoModule*)"
+                  moduleName = "SPH"
+                  urlString = "file:///Users/Sam/Desktop/SPH/SPH/Timestep.cpp"
+                  timestampString = "437080340.411805"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "416">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "densityStep(std::__1::vector&lt;Particle*, std::__1::allocator&lt;Particle*&gt; &gt;, infoModule*)"
+                  moduleName = "SPH"
+                  urlString = "file:///Users/Sam/Desktop/SPH/SPH/Timestep.cpp"
+                  timestampString = "437080340.411933"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "455">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "densityStep(std::__1::vector&lt;Particle*, std::__1::allocator&lt;Particle*&gt; &gt;, infoModule*)"
+                  moduleName = "SPH"
+                  urlString = "file:///Users/Sam/Desktop/SPH/SPH/Timestep.cpp"
+                  timestampString = "437080340.412107"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "485">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "densityStep(std::__1::vector&lt;Particle*, std::__1::allocator&lt;Particle*&gt; &gt;, infoModule*)"
+                  moduleName = "SPH"
+                  urlString = "file:///Users/Sam/Desktop/SPH/SPH/Timestep.cpp"
+                  timestampString = "437080340.412233"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "520">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "densityStep(std::__1::vector&lt;Particle*, std::__1::allocator&lt;Particle*&gt; &gt;, infoModule*)"
+                  moduleName = "SPH"
+                  urlString = "file:///Users/Sam/Desktop/SPH/SPH/Timestep.cpp"
+                  timestampString = "437080340.412358"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "562">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SPH/Timestep.cpp"
+            timestampString = "437080323.297945"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "densityTimeStep(std::vector&lt;Particle*&gt; plist, infoModule* module)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "densityTimeStep(std::__1::vector&lt;Particle*, std::__1::allocator&lt;Particle*&gt; &gt;, infoModule*)"
+                  moduleName = "SPH"
+                  urlString = "file:///Users/Sam/Desktop/SPH/SPH/Timestep.cpp"
+                  timestampString = "437080160.464824"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "941">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "densityTimeStep(std::__1::vector&lt;Particle*, std::__1::allocator&lt;Particle*&gt; &gt;, infoModule*)"
+                  moduleName = "SPH"
+                  urlString = "file:///Users/Sam/Desktop/SPH/SPH/Timestep.cpp"
+                  timestampString = "437080160.464995"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "979">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "densityTimeStep(std::__1::vector&lt;Particle*, std::__1::allocator&lt;Particle*&gt; &gt;, infoModule*)"
+                  moduleName = "SPH"
+                  urlString = "file:///Users/Sam/Desktop/SPH/SPH/Timestep.cpp"
+                  timestampString = "437080160.465321"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "1021">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "densityTimeStep(std::__1::vector&lt;Particle*, std::__1::allocator&lt;Particle*&gt; &gt;, infoModule*)"
+                  moduleName = "SPH"
+                  urlString = "file:///Users/Sam/Desktop/SPH/SPH/Timestep.cpp"
+                  timestampString = "437080160.465572"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "1127">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "densityTimeStep(std::__1::vector&lt;Particle*, std::__1::allocator&lt;Particle*&gt; &gt;, infoModule*)"
+                  moduleName = "SPH"
+                  urlString = "file:///Users/Sam/Desktop/SPH/SPH/Timestep.cpp"
+                  timestampString = "437080160.465716"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "1169">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SPH/main.cpp"
+            timestampString = "437081031.14297"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "main(int argc, const char * argv[])"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

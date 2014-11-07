@@ -16,11 +16,6 @@ void findDrhodt(std::vector<Particle*> plist, infoModule* module)
     for (int n = 0; n<plist.size(); n++)
     {
         sum = 0.0;
-        /*
-        sum[0] = 0.0;
-        sum[1] = 0.0;
-        sum[2] = 0.0;
-        */
         
         for (int m=0; m<plist[n]->neighbours.size(); m++)
         {

@@ -18,6 +18,7 @@ struct infoModule{
     double deltax;
     double h;
     double rho0;
+    double cs;
     double x;
     double y;
     

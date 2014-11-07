@@ -49,10 +49,12 @@ int main(int argc, const char * argv[])
     simInfo.rho0 = rho0;
     simInfo.nDim = nDim;
     
-    simInfo.deltat = 0.001;
+    simInfo.cs = 10*sqrt(9.81*10);
+    
+    simInfo.deltat = 0.0001;
     simInfo.simTime = 0.0;
-    simInfo.finishTime = 1.008;
-    simInfo.outputTime = 0.001;
+    simInfo.finishTime = 10.00;
+    simInfo.outputTime = 0.016;
     
     simInfo.fileN = 0;
     simInfo.iterationN = 0;
@@ -76,24 +78,25 @@ int main(int argc, const char * argv[])
     // create particles and initialise them
     cout<<"Beginning particle initialisation \n \n";
     
-    //createWall(&listofparticles, {-3.0*deltax/2,-3.0*deltax/2,0}, {2+1.5*deltax,-deltax/2,0}, &simInfo);
-    //createWall(&listofparticles, {-3.0*deltax/2,0,0}, {-deltax/2,2+1.5*deltax,0}, &simInfo);
-    //createWall(&listofparticles, {2 + deltax/2,0,0}, {2 + 1.5*deltax,2+1.5*deltax,0}, &simInfo);
+    createWall(&listofparticles, {-3.0*deltax/2,-3.0*deltax/2,0}, {2+1.5*deltax,-deltax/2,0}, &simInfo);
+    createWall(&listofparticles, {-3.0*deltax/2,0,0}, {-deltax/2,2+1.5*deltax,0}, &simInfo);
+    createWall(&listofparticles, {2 + deltax/2,0,0}, {2 + 1.5*deltax,2+1.5*deltax,0}, &simInfo);
     
+    /*
     createLine2D(&listofparticles, {-0.1,2.01}, 0, -0.1, &simInfo);
     createLine2D(&listofparticles, {-0.1,2.01}, 1, -0.1, &simInfo);
     createLine2D(&listofparticles, {-0.1,2.01}, 0, 2.0, &simInfo);
-    
+    */
     
     simInfo.nWallPar = int(listofparticles.size());
     
     cout<<"Particle wall initialisation finished \n"<< listofparticles.size() <<" Particles \n \n";
     
-    createFuid(&listofparticles, {0,0,0}, {1,1,0}, &simInfo);
+    createFuid(&listofparticles, {0,0,0}, {2,1,0}, &simInfo);
     
     
     
-    //initPressure(listofparticles, &simInfo);
+    initPressure(listofparticles, &simInfo);
     
     cout<<"Particle initialisation finished \n"<< listofparticles.size() <<" Particles \n \n";
     
@@ -109,19 +112,20 @@ int main(int argc, const char * argv[])
     
     initWallPressure(listofparticles, &simInfo);
     
-    /*
+    
     cout<<"Updating neighbours \n \n";
     t = clock();
     updateNeighboursMT8(listofparticles, &simInfo);
     t = (clock() - t);
     timed = t / (double) CLOCKS_PER_SEC;
     cout<<"Neighbours found in "<< timed/8 << " seconds \n \n";
-    */
+    
     
     
         
     findAccel(listofparticles,&simInfo);
     
+    //cout << " x = " << listofparticles[246]->position[0] << " y = " << listofparticles[246]->position[1] << " P = " << listofparticles[246]->pressure[0] << endl;
     
     for (simInfo.iterationN = 0; simInfo.iterationN < simInfo.finishIteration; simInfo.iterationN++)
     {
@@ -134,11 +138,10 @@ int main(int argc, const char * argv[])
         
     
         Beemans(listofparticles, &simInfo);
-        FNMT8(listofparticles, &simInfo);
-        cout << simInfo.simTime << " P = " << listofparticles[10]->pressure[0] << endl;
-        //initWallPressure(listofparticles, &simInfo);
+        //FNMT8(listofparticles, &simInfo);
+        //cout << simInfo.simTime << " P = " << listofparticles[246]->pressure[0] << " Neighbours = " << listofparticles[246]->neighbours.size() << endl;
         
-        //updateNeighboursMT8(listofparticles, &simInfo);
+        updateNeighboursMT8(listofparticles, &simInfo);
         
         simInfo.simTime = simInfo.simTime + simInfo.deltat;
         

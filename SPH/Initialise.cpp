@@ -107,6 +107,7 @@ void initPressure(std::vector<Particle*> plist, infoModule* module)
             
             for (int n = 0; n< sub.size(); n++)
             {
+                
                 sub[n]->pressure[0] =  module->rho0 * 9.81 * (bigY - sub[n]->position[1]);
             }
             
@@ -133,6 +134,25 @@ void initPressure(std::vector<Particle*> plist, infoModule* module)
                 smallY = remaining[i]->position[1] ;
             }
             remaining.erase(remaining.begin()+i);
+            
+            if (remaining.size() == 0)
+            {
+                i = 0;
+                
+                yDiff = bigY - smallY;
+                
+                for (int n = 0; n< sub.size(); n++)
+                {
+                    
+                    sub[n]->pressure[0] =  module->rho0 * 9.81 * (bigY - sub[n]->position[1]);
+                }
+                
+                
+                sub.clear();
+                sub.push_back(remaining[0]);
+                continue;
+            }
+            
             continue;
         }
         i++;
@@ -151,30 +171,37 @@ void initPressure(std::vector<Particle*> plist, infoModule* module)
  */
 void initWallPressure(std::vector<Particle*> plist, infoModule* module)
 {
-    double sum;
-    int total;
+    double closestR, r;
+    Particle* closest;
+    int check;
     for (int i = 0 ; i < module->nWallPar; i++)
     {
-        sum = 0.0;
-        total = 0;
-        for (int j = 0; j < plist[i]->neighbours.size(); j++)
+        check = 0;
+        if (plist[i]->neighbours.size() > 0)
         {
-            if (plist[i]->neighbours[j]->iswall == 0)
+            closestR = 2*module->h;
+            for (int j = 0; j < plist[i]->neighbours.size(); j++)
             {
-                sum = sum + plist[i]->neighbours[j]->pressure[0];
-                total++;
+                if (plist[i]->neighbours[j]->iswall == 0)
+                {
+                    r = plist[i]->neighboursdist[j];
+                    if (r<closestR) {
+                        closestR = r;
+                        closest = plist[i]->neighbours[j];
+                        check = 1;
+                    }
+                }
             }
+            if (check ==1)
+            {
+                plist[i]->pressure[0] = closest->pressure[0] + module->deltax * module->rho0 * 9.81;
+            }
+            
         }
         
-        if (total == 0)
-        {
-            plist[i]->pressure[0] = 0.0;
-            continue;
-        }
-        else
-        {
-            plist[i]->pressure[0] = double(sum/total);
-        }
+       
+        
+        
         
     }
 }
