@@ -18,5 +18,6 @@
 using namespace std;
 
 void writeParticles(std::vector<Particle*> plist, infoModule* module);
+void writeFluid(std::vector<Particle*> plist, infoModule* module);
 
 #endif /* defined(__SPH__output__) */

@@ -8,7 +8,7 @@
 
 #include "Timestep.h"
 
-void densityStep(std::vector<Particle*> plist, infoModule* module)
+void densityTimeStep(std::vector<Particle*> plist, infoModule* module)
 {
     double t = module->deltat;
     double ddt ,rho, d;
@@ -27,32 +27,7 @@ void densityStep(std::vector<Particle*> plist, infoModule* module)
     
 }
 
-void densityTimeStep(std::vector<Particle*> plist, infoModule* module)
-{
-    double k1,k2,k3,k4;
-    double t = module->deltat;
-    findDrhodt(plist, module);
-    
-    double ddt;
-    //runge kutta method
-    for (int i = 0; i < plist.size(); i++)
-    {
-        
-        ddt = plist[i]->drhodt[0];
-        
-        k1 = plist[i]->density[0];
-        
-        k2 = plist[i]->density[0] + 0.5*t*plist[i]->drhodt[0] + 0.5*t*k1;
-        
-        k3 = plist[i]->density[0] + 0.5*t*plist[i]->drhodt[0] + 0.5*t*k2;
-        
-        k4 = plist[i]->density[0] + t*plist[i]->drhodt[0] + t*k3;
-        
-        plist[i]->density[0] = plist[i]->density[0] + (t/6.0)*(k1 + 2*k2 + 2*k3 + k4);
-    }
-    
-    
-}
+
 
 void pressureTimeStep(std::vector<Particle*> plist, infoModule* module)
 {
@@ -70,6 +45,7 @@ void pressureTimeStep(std::vector<Particle*> plist, infoModule* module)
 void Beemans(std::vector<Particle*> plist, infoModule* module)
 {
     double t = module->deltat;
+    double dr;
     
     for (int i = 0; i<plist.size(); i++)
     {
@@ -79,6 +55,7 @@ void Beemans(std::vector<Particle*> plist, infoModule* module)
             // calculate the next positions
             for (int Dim = 0; Dim < module->nDim; Dim++)
             {
+                dr =plist[i]->vel[Dim]*t + (2.0/3.0)*plist[i]->accel[Dim]*pow(t, 2) - (1.0/6.0)*plist[i]->prevAccel[Dim]*pow(t, 2);
                 plist[i]->dr[Dim] = plist[i]->vel[Dim]*t + (2.0/3.0)*plist[i]->accel[Dim]*pow(t, 2) - (1.0/6.0)*plist[i]->prevAccel[Dim]*pow(t, 2);
                 plist[i]->position[Dim] = plist[i]->position[Dim] + plist[i]->dr[Dim];
             }
@@ -101,7 +78,7 @@ void Beemans(std::vector<Particle*> plist, infoModule* module)
     
         // use this velocity to get new forces
     
-        densityStep(plist, module); // get new densities
+        densityTimeStep(plist, module); // get new densities
     
         pressureTimeStep(plist,module); // get new pressures
         

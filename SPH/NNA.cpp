@@ -17,7 +17,7 @@ double pDist(Particle* p1, Particle* p2)
 {
     double norm = 0.0;
     
-    norm = sqrt(pow(p1->position[0] - p2->position[0],2)+pow(p1->position[1] - p2->position[1],2));
+    norm = sqrt(pow(p1->position[0] - p2->position[0],2)+pow(p1->position[1] - p2->position[1],2)+pow(p1->position[2] - p2->position[2],2));
     
     return norm;
 }

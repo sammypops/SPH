@@ -21,7 +21,7 @@ void createWall(std::vector<Particle*>* plist, std::array<double, 3> start, std:
             for (double k = start[2]; k<= finish[2]; k = k + module->deltax)
             {
                 //******************************************************************************************
-                plist->push_back(new Particle(1, {i,j}, {module->rho0*module->deltax, 0.0 , module->rho0})); // uses the wall constructor
+                plist->push_back(new Particle(1, {i,j,k}, {module->rho0*module->deltax, 0.0 , module->rho0})); // uses the wall constructor
                 //******************************************************************************************
             }
             
@@ -65,7 +65,7 @@ void createFuid(std::vector<Particle*>* plist, std::array<double, 3> start, std:
             for (double k = start[2]; k<= finish[2]+0.00001; k = k + module->deltax)
             {
                 //**************************************************************************************************
-                plist->push_back(new Particle({i,j}, {0.0,0.0}, {module->rho0*module->deltax, 0.0, module->rho0}));
+                plist->push_back(new Particle({i,j,k}, {0.0,0.0,0.0}, {module->rho0*module->deltax, 0.0, module->rho0}));
                 //**************************************************************************************************
             }
             
@@ -75,7 +75,26 @@ void createFuid(std::vector<Particle*>* plist, std::array<double, 3> start, std:
     
 }
 
-/* 
+void initPressure2(std::vector<Particle*> plist, infoModule* module)
+{
+    double tallest;
+    
+    tallest = plist[module->nWallPar]->position[module->nDim];
+    
+    for (int i = module->nWallPar; i < plist.size(); i++)
+    {
+        if (tallest < plist[i]->position[module->nDim])
+        {
+            tallest = plist[i]->position[module->nDim];
+        }
+    }
+    for (int i = module->nWallPar; i < plist.size(); i++)
+    {
+        plist[i]->pressure[0] =  module->rho0 * 9.81 * (tallest - plist[i]->position[module->nDim]);
+    }
+}
+
+/*
  bit of a hack way of initialising pressure.
  find a line of vertical particles and give them a pressure gradient which
  is dependant on the top and bottom particle.
