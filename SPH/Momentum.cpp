@@ -8,6 +8,38 @@
 
 #include "Momentum.h"
 
+double viscosity(int i, int j,std::vector<Particle*> plist, infoModule* module)
+{
+    double visc;
+    double alpha, mu, cbar, rhobar;
+    double m;
+    
+    m = 0.0;
+    
+    for (int Dim = 0; Dim<module->nDim; Dim++)
+    {
+        m = m + (plist[i]->position[Dim] - plist[i]->neighbours[j]->position[Dim]) *(plist[i]->vel[Dim] - plist[i]->neighbours[j]->vel[Dim]);
+    }
+    if (m > 0)
+    {
+        visc = 0.0;
+        return visc;
+    }
+    
+    alpha = 0.1;
+    
+    mu = (module->h* m )/(plist[i]->neighboursdist[j] + 0.01*pow(module->h, 2));
+    
+    rhobar = (plist[i]->density[0] + plist[i]->neighbours[j]->density[0])/2;
+    
+    cbar = module->cs;
+    
+    visc = (-alpha*cbar*mu)/rhobar;
+    
+    return visc;
+    
+}
+
 std::array<double,3> acceleration (int i,std::vector<Particle*> plist, infoModule* module)
 {
     std::array<double, 3> sum;
@@ -15,6 +47,7 @@ std::array<double,3> acceleration (int i,std::vector<Particle*> plist, infoModul
     double dkernel;
     double dxdr;
     double p_i, p_j, rho_i, rho_j;
+    double visc;
     
     sum.fill(0.0);
     
@@ -28,6 +61,7 @@ std::array<double,3> acceleration (int i,std::vector<Particle*> plist, infoModul
         {
             continue;
         }
+        visc = viscosity(i,j,plist,module);
         dkernel = wendkernel(r,  module);
         p_j = plist[i]->neighbours[j]->pressure[0];
         rho_j = plist[i]->neighbours[j]->density[0];
@@ -36,7 +70,7 @@ std::array<double,3> acceleration (int i,std::vector<Particle*> plist, infoModul
         {
             dxdr = (plist[i]->position[Dim] - plist[i]->neighbours[j]-> position[Dim])/r;
             //momentum eqn
-            sum[Dim] = sum[Dim] - (plist[i]->neighbours[j]->m[0]*(p_j/pow(rho_j, 2) + p_i/pow(rho_i, 2)) * dxdr * dkernel);
+            sum[Dim] = sum[Dim] - (plist[i]->neighbours[j]->m[0]*(p_j/pow(rho_j, 2) + p_i/pow(rho_i, 2)+ viscosity(i, j, plist, module)) * dxdr * dkernel);
         }
         
         

@@ -17,6 +17,7 @@
 #include "Par.h"  
 #include "MyStructs.h"
 
+
 using namespace std;
 
 void createWall(std::vector<Particle*>* plist, std::array<double, 3> start, std::array<double, 3> finish, infoModule* module);

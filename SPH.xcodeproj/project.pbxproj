@@ -15,6 +15,7 @@
 		22ACFAFE1A0BABF40062F7E1 /* output.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22ACFAFC1A0BABF40062F7E1 /* output.cpp */; };
 		22BF132419FD7055001A059A /* Par.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22BF132219FD7055001A059A /* Par.cpp */; };
 		22BF132519FDB319001A059A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2263832E19FA90AC0041B828 /* main.cpp */; };
+		22DA1C551A10D58C000EBF2E /* WallSetUp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22DA1C531A10D58C000EBF2E /* WallSetUp.cpp */; };
 		22DCB5701A07BED4000DA7C9 /* Momentum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22DCB56E1A07BED4000DA7C9 /* Momentum.cpp */; };
 		22DCB5731A07D1B0000DA7C9 /* Initialise.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22DCB5711A07D1B0000DA7C9 /* Initialise.cpp */; };
 /* End PBXBuildFile section */
@@ -48,6 +49,8 @@
 		22ACFAFD1A0BABF40062F7E1 /* output.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = output.h; sourceTree = "<group>"; };
 		22BF132219FD7055001A059A /* Par.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Par.cpp; sourceTree = "<group>"; };
 		22BF132319FD7055001A059A /* Par.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Par.h; sourceTree = "<group>"; };
+		22DA1C531A10D58C000EBF2E /* WallSetUp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WallSetUp.cpp; sourceTree = "<group>"; };
+		22DA1C541A10D58C000EBF2E /* WallSetUp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WallSetUp.h; sourceTree = "<group>"; };
 		22DCB56E1A07BED4000DA7C9 /* Momentum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Momentum.cpp; sourceTree = "<group>"; };
 		22DCB56F1A07BED4000DA7C9 /* Momentum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Momentum.h; sourceTree = "<group>"; };
 		22DCB5711A07D1B0000DA7C9 /* Initialise.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Initialise.cpp; sourceTree = "<group>"; };
@@ -95,6 +98,8 @@
 				22ACFAF71A09946A0062F7E1 /* Density.h */,
 				22DCB5711A07D1B0000DA7C9 /* Initialise.cpp */,
 				22DCB5721A07D1B0000DA7C9 /* Initialise.h */,
+				22DA1C531A10D58C000EBF2E /* WallSetUp.cpp */,
+				22DA1C541A10D58C000EBF2E /* WallSetUp.h */,
 				22DCB56E1A07BED4000DA7C9 /* Momentum.cpp */,
 				22DCB56F1A07BED4000DA7C9 /* Momentum.h */,
 				225833351A028843008A17DE /* Kernel.cpp */,
@@ -164,6 +169,7 @@
 				22ACFAFE1A0BABF40062F7E1 /* output.cpp in Sources */,
 				225833331A027F7B008A17DE /* NNA.cpp in Sources */,
 				22BF132519FDB319001A059A /* main.cpp in Sources */,
+				22DA1C551A10D58C000EBF2E /* WallSetUp.cpp in Sources */,
 				22ACFAF81A09946A0062F7E1 /* Density.cpp in Sources */,
 				22BF132419FD7055001A059A /* Par.cpp in Sources */,
 				22DCB5731A07D1B0000DA7C9 /* Initialise.cpp in Sources */,
