@@ -18,6 +18,5 @@
 #include "Kernel.h"
 
 void findDrhodt(std::vector<Particle*> plist, infoModule* module);
-void findDelP(std::vector<Particle*> plist, infoModule* module);
 
 #endif /* defined(__SPH__Density__) */
