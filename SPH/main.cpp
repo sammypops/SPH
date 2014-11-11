@@ -52,13 +52,18 @@ int main(int argc, const char * argv[])
     
     simInfo.cs = 10*sqrt(9.81*1);
     
-    simInfo.deltat = 0.001;
+    simInfo.deltat = 0.1*simInfo.h/simInfo.cs;
+    cout <<" delta t = " << simInfo.deltat << endl;
+    
     simInfo.simTime = 0.0;
+    simInfo.timeCounter = 0.0;
+    
     simInfo.finishTime = 16.00;
     simInfo.outputTime = 0.016;
     
     simInfo.fileN = 0;
     simInfo.iterationN = 0;
+    simInfo.neighbourRefresh = 58;
     
     simInfo.finishIteration = int(floor(simInfo.finishTime/simInfo.deltat));
     
@@ -85,7 +90,7 @@ int main(int argc, const char * argv[])
     
     cout<<"Particle wall initialisation finished \n"<< listofparticles.size() <<" Particles \n \n";
     
-    createFuid(&listofparticles, {0.0,0.05,0.0}, {1,1,0}, &simInfo);
+    createFuid(&listofparticles, {0.05,0.05,0.0}, {1,1,0}, &simInfo);
     
     
     
@@ -112,32 +117,12 @@ int main(int argc, const char * argv[])
     timed = t / (double) CLOCKS_PER_SEC;
     cout<<"Neighbours found in "<< timed/8 << " seconds \n \n";
     
-    
-    
-        
     findAccel(listofparticles,&simInfo);
     
-    //cout << " x = " << listofparticles[246]->position[0] << " y = " << listofparticles[246]->position[1] << " P = " << listofparticles[246]->pressure[0] << endl;
     
-    for (simInfo.iterationN = 0; simInfo.iterationN < simInfo.finishIteration; simInfo.iterationN++)
-    {
-        
-        if (simInfo.iterationN == 0 || simInfo.iterationN % simInfo.outputIteration == 0 )
-        {
-            writeParticles(listofparticles, &simInfo);
-            simInfo.fileN++;
-        }
     
-        Beemans(listofparticles, &simInfo);
-        //FNMT8(listofparticles, &simInfo);
-        //cout << simInfo.simTime << " P = " << listofparticles[246]->pressure[0] << " Neighbours = " << listofparticles[246]->neighbours.size() << endl;
-        
-        updateNeighboursMT8(listofparticles, &simInfo);
-        
-        simInfo.simTime = simInfo.simTime + simInfo.deltat;
-        
-    }
     
+    constTimeStep(listofparticles, &simInfo);
     
     
     

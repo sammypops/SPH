@@ -25,10 +25,12 @@ struct infoModule{
     double simTime;
     double finishTime;
     double deltat;
+    double timeCounter;
     double outputTime;
     
     int nDim;
     int nWallPar;
+    int neighbourRefresh; // how often the loop will use the recursive search before the brute force
     int fileN;
     int iterationN;
     int finishIteration;

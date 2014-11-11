@@ -16,8 +16,14 @@
 #include "MyStructs.h"
 #include "Momentum.h"
 #include "Density.h"
-
+#include "NNA.h"
+#include "output.h"
 
 void Beemans(std::vector<Particle*> plist, infoModule* module);
+
+
+void constTimeStep(std::vector<Particle*> plist, infoModule* module);
+void variableTimeStep(std::vector<Particle*> plist, infoModule* module);
+
 
 #endif /* defined(__SPH__Timestep__) */

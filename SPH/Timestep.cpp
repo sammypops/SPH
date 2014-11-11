@@ -8,6 +8,75 @@
 
 #include "Timestep.h"
 
+void variableTimeStep(std::vector<Particle*> plist, infoModule* module)
+{
+    int refreshCounter = 0;
+    
+    
+    
+    for (module->iterationN = 0; module->iterationN < module->finishIteration; module->iterationN++)
+    {
+        
+        if (module->timeCounter > module->outputTime)
+        {
+            writeParticles(plist, module);
+            module->fileN++;
+            module->timeCounter = module->timeCounter - module->outputTime;
+        }
+        
+        Beemans(plist, module);
+        
+        //cout << module->simTime << " P = " << plist[246]->pressure[0] << " Neighbours = " << plist[246]->neighbours.size() << endl;
+        
+        if (refreshCounter > module->neighbourRefresh )
+        {
+            refreshCounter = 0;
+            FNMT8(plist, module);
+        }
+        else
+        {
+            updateNeighboursMT8(plist, module);
+        }
+        
+        
+        module->simTime = module->simTime + module->deltat;
+        
+    }
+    
+    
+}
+
+void constTimeStep(std::vector<Particle*> plist, infoModule* module)
+{
+    
+    int refreshCounter = 0;
+    
+    for (module->iterationN = 0; module->iterationN < module->finishIteration; module->iterationN++)
+    {
+        
+        if (module->iterationN == 0 || module->iterationN % module->outputIteration == 0 )
+        {
+            writeParticles(plist, module);
+            module->fileN++;
+        }
+        
+        Beemans(plist, module);
+        
+        if (refreshCounter > module->neighbourRefresh )
+        {
+            refreshCounter = 0;
+            FNMT8(plist, module);
+        }
+        else
+        {
+            updateNeighboursMT8(plist, module);
+        }
+        
+        module->simTime = module->simTime + module->deltat;
+        
+    }
+}
+
 void densityTimeStep(std::vector<Particle*> plist, infoModule* module)
 {
     double t = module->deltat;
@@ -67,12 +136,6 @@ void Beemans(std::vector<Particle*> plist, infoModule* module)
                 plist[i]->vel[Dim] = plist[i]->vel[Dim] + plist[i]->vel[Dim]*t + (3.0/2.0)*plist[i]->accel[Dim]*t - (1.0/2.0)*plist[i]->prevAccel[Dim]*t;
             }
         }
-        
-        
-        
-        
-        
-        
         
     }
     
