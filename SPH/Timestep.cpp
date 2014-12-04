@@ -28,7 +28,7 @@ void variableTimeStep(std::vector<Particle*> plist, infoModule* module)
         
         //cout << module->simTime << " P = " << plist[246]->pressure[0] << " Neighbours = " << plist[246]->neighbours.size() << endl;
         
-        if (refreshCounter > module->neighbourRefresh )
+        if (refreshCounter >= module->neighbourRefresh )
         {
             refreshCounter = 0;
             FNMT8(plist, module);
@@ -48,6 +48,12 @@ void variableTimeStep(std::vector<Particle*> plist, infoModule* module)
 
 void constTimeStep(std::vector<Particle*> plist, infoModule* module)
 {
+    std::vector<Particle*> flist;
+    
+    for (int i = module->nWallPar; i < plist.size(); i++)
+    {
+        flist.push_back(plist[i]);
+    }
     
     int refreshCounter = 0;
     
@@ -56,13 +62,14 @@ void constTimeStep(std::vector<Particle*> plist, infoModule* module)
         
         if (module->iterationN == 0 || module->iterationN % module->outputIteration == 0 )
         {
-            writeParticles(plist, module);
+            //writeParticles(plist, module);
+            writeFluid(plist, module);
             module->fileN++;
         }
         
-        Beemans(plist, module);
+        Beemans(flist, module);
         
-        if (refreshCounter > module->neighbourRefresh )
+        if (refreshCounter >= module->neighbourRefresh )
         {
             refreshCounter = 0;
             FNMT8(plist, module);
@@ -70,6 +77,7 @@ void constTimeStep(std::vector<Particle*> plist, infoModule* module)
         else
         {
             updateNeighboursMT8(plist, module);
+            refreshCounter++;
         }
         
         module->simTime = module->simTime + module->deltat;
@@ -77,35 +85,8 @@ void constTimeStep(std::vector<Particle*> plist, infoModule* module)
     }
 }
 
-void densityTimeStep(std::vector<Particle*> plist, infoModule* module)
-{
-    double t = module->deltat;
-    double ddt ,rho, d;
-    findDrhodt(plist, module);
-    
-    for (int i = 0; i< plist.size(); i++)
-    {
-        ddt = plist[i]->drhodt[0];
-        
-        rho =plist[i]->density[0];
-        
-        d = rho + t*ddt;
-        
-        plist[i]->density[0] = plist[i]->density[0] + t*plist[i]->drhodt[0];
-    }
-    
-}
 
 
-
-void pressureTimeStep(std::vector<Particle*> plist, infoModule* module)
-{
-    for (int i = 0; i < plist.size(); i++)
-    {
-        plist[i]->pressure[0] = pow(module->cs,2)*(plist[i]->density[0]-module->rho0) ;
-        
-    }
-}
 
 /*
     Beeman's algorithm with predictor corrector
@@ -118,7 +99,7 @@ void Beemans(std::vector<Particle*> plist, infoModule* module)
     
     for (int i = 0; i<plist.size(); i++)
     {
-        // don't include the wall particles maybe?
+        // don't include the wall particles
         if (plist[i]->iswall == 0)
         {
             // calculate the next positions
@@ -141,13 +122,13 @@ void Beemans(std::vector<Particle*> plist, infoModule* module)
     
         // use this velocity to get new forces
     
-        densityTimeStep(plist, module); // get new densities
+        DTSMT8(plist, module); // get new densities
     
-        pressureTimeStep(plist,module); // get new pressures
+        PTSMT8(plist,module); // get new pressures
         
         // work out the next acceleration
-        findNextAccel(plist, module);
-    
+        //findNextAccel(plist, module);
+        FNAMT8(plist, module);
     
     for (int i = 0; i<plist.size(); i++)
     {

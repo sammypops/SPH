@@ -13,10 +13,12 @@
 #include <cmath>
 #include <array>
 #include <vector>
+#include <thread>
 #include "Par.h"
 #include "Kernel.h"
 
 void findAccel(std::vector<Particle*> plist, infoModule* module);
 void findNextAccel(std::vector<Particle*> plist, infoModule* module);
+void FNAMT8(std::vector<Particle*> plist, infoModule* module);
 
 #endif /* defined(__SPH__Momentum__) */

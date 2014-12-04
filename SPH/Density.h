@@ -13,10 +13,13 @@
 #include <cmath>
 #include <vector>
 #include <array>
+#include <thread>
 #include "MyStructs.h"
 #include "Par.h"
 #include "Kernel.h"
 
 void findDrhodt(std::vector<Particle*> plist, infoModule* module);
+void DTSMT8(std::vector<Particle*> plist, infoModule* module);
+void PTSMT8(std::vector<Particle*> plist, infoModule* module);
 
 #endif /* defined(__SPH__Density__) */

@@ -36,10 +36,10 @@ int main(int argc, const char * argv[])
     
     
     double rho0 = 1000.;
-    double deltax = 0.05;
+    double deltax = 0.1;
     double h = 1.3*deltax;
     
-    int nDim = 2;
+    int nDim = 3;
     
     array<double, 6> domain = {0.0, 2.0, 0.0, 2.0, 0.0, 0.0};
     
@@ -63,7 +63,7 @@ int main(int argc, const char * argv[])
     
     simInfo.fileN = 0;
     simInfo.iterationN = 0;
-    simInfo.neighbourRefresh = 58;
+    simInfo.neighbourRefresh = 10;
     
     simInfo.finishIteration = int(floor(simInfo.finishTime/simInfo.deltat));
     
@@ -84,13 +84,13 @@ int main(int argc, const char * argv[])
     // create particles and initialise them
     cout<<"Beginning particle initialisation \n \n";
     
-    box2DOpen(&listofparticles, &simInfo);
+    box3DOpen(&listofparticles, &simInfo);
     
     simInfo.nWallPar = int(listofparticles.size());
     
     cout<<"Particle wall initialisation finished \n"<< listofparticles.size() <<" Particles \n \n";
     
-    createFuid(&listofparticles, {0.05,0.05,0.0}, {1,1,0}, &simInfo);
+    createFuid(&listofparticles, {0.05,0.05,0.05}, {1,1,1}, &simInfo);
     
     
     
