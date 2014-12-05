@@ -52,7 +52,7 @@ int main(int argc, const char * argv[])
     
     simInfo.cs = 10*sqrt(9.81*1);
     
-    simInfo.deltat = 0.1*simInfo.h/simInfo.cs;
+    simInfo.deltat = 0.05*simInfo.h/simInfo.cs;
     cout <<" delta t = " << simInfo.deltat << endl;
     
     simInfo.simTime = 0.0;
@@ -63,11 +63,13 @@ int main(int argc, const char * argv[])
     
     simInfo.fileN = 0;
     simInfo.iterationN = 0;
-    simInfo.neighbourRefresh = 10;
+    
     
     simInfo.finishIteration = int(floor(simInfo.finishTime/simInfo.deltat));
     
     simInfo.outputIteration = int(floor(simInfo.outputTime/simInfo.deltat));
+    
+    simInfo.neighbourRefresh = 0;//int(floor(5*simInfo.outputIteration));
     
     
     
@@ -117,7 +119,7 @@ int main(int argc, const char * argv[])
     timed = t / (double) CLOCKS_PER_SEC;
     cout<<"Neighbours found in "<< timed/8 << " seconds \n \n";
     
-    findAccel(listofparticles,&simInfo);
+    FNAMT8(listofparticles,&simInfo);
     
     
     

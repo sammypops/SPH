@@ -19,6 +19,8 @@
 #include "Kernel.h"
 
 void findDrhodt(std::vector<Particle*> plist, infoModule* module);
+void densityTimeStep(std::vector<Particle*> plist, infoModule* module);
+void pressureTimeStep(std::vector<Particle*> plist, infoModule* module);
 void DTSMT8(std::vector<Particle*> plist, infoModule* module);
 void PTSMT8(std::vector<Particle*> plist, infoModule* module);
 

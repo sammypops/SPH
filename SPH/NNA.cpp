@@ -109,26 +109,43 @@ void FNMT8(std::vector<Particle*> plist, infoModule* module)
 void FN(std::vector<Particle*> plist, std::vector<Particle*> allParticles, infoModule* module)
 {
     double r = 0.0;
+    int isclose;
     for (int i = 0; i < plist.size(); i++)
     {
         plist[i]->resetneighbours();
         for (int j = 0; j < allParticles.size(); j++)
         {
+            isclose = 0;
             
             if (plist[i] == allParticles[j])
             {
                 continue;
             }
-            r = pDist(plist[i], allParticles[j]);
             
-            if (fabs(r) < 2*module->h-0.0000001 ) // if the particles i and j are close add them to the list of neighbours for particle i
+            for (int d=0; d<module->nDim; d++)
             {
-                plist[i]->neighbours.push_back(allParticles[j]);
-                plist[i]->neighboursdist.push_back(r);
+                if (abs(plist[i]->position[d] - allParticles[j]->position[d]) < 2*module->h-0.0000001)
+                {
+                    isclose++;
+                }
+                else break;
             }
             
-        }
-    }
+            if (isclose == module->nDim)
+            {
+                r = pDist(plist[i], allParticles[j]);
+                
+                if (fabs(r) < 2*module->h-0.0000001 ) // if the particles i and j are close add them to the list of neighbours for particle i
+                {
+                    plist[i]->neighbours.push_back(allParticles[j]);
+                    plist[i]->neighboursdist.push_back(r);
+                }//if
+ 
+            }//if
+            
+            
+        }//j
+    }//i
 }
 
 // 8 threaded recursive neighbour update
@@ -214,27 +231,56 @@ void updateNeighboursMT8(std::vector<Particle*> plist, infoModule* module)
  Very quick but will fail for two separate bodies of particles 
  colliding
  */
+
 void updateNeighbours (std::vector<Particle*> plist, infoModule* module)
 {
     double r = 0.0;
+    int isclose, s;
+    
+    std::vector<Particle*> checked;
+    
     std::vector<Particle*> newneighbours;
     std::vector<double> newneighboursdist;
     
+    
+    
     for (int i = 0; i<plist.size(); i++)
     {
+        s = 0;
         
         for (int j = 0; j<plist[i]->neighbours.size(); j++)
         {
             for (int k = 0; k < plist[i]->neighbours[j]->neighbours.size(); k++)
             {
+                isclose = 0;
+ 
                 // if the neighbour's neighbours aren't already in the newNeighbours list then check if it's in the kernel. New neighbour can't be particle i.
-                if (std::find(newneighbours.begin(), newneighbours.end(), plist[i]->neighbours[j]->neighbours[k]) == newneighbours.end() && plist[i] != plist[i]->neighbours[j]->neighbours[k])
+                if (std::find(newneighbours.begin(), newneighbours.end(), plist[i]->neighbours[j]->neighbours[k]) == newneighbours.end())
                 {
-                    r = pDist(plist[i], plist[i]->neighbours[j]->neighbours[k]);
-                    if (fabs(r) < 2*module->h-0.0000001 ) // if the particles i and k are close add them to the list of newNeighbours for particle i
+                    if ( plist[i] == plist[i]->neighbours[j]->neighbours[k])
                     {
-                        newneighbours.push_back(plist[i]->neighbours[j]->neighbours[k]);
-                        newneighboursdist.push_back(r);
+                        continue;
+                    }
+                    
+                    
+                    for (int d=0; d<module->nDim; d++)
+                    {
+                        if (fabs(plist[i]->position[d] - plist[i]->neighbours[j]->neighbours[k]->position[d]) < 2*module->h-0.0000001)
+                        {
+                            isclose++;
+                        }
+                        else break;
+                    }
+                    
+                    if (isclose == module->nDim)
+                    {
+                        s++;
+                        r = pDist(plist[i], plist[i]->neighbours[j]->neighbours[k]);
+                        if (fabs(r) < 2*module->h-0.0000001 ) // if the particles i and k are close add them to the list of newNeighbours for particle i
+                        {
+                            newneighbours.push_back(plist[i]->neighbours[j]->neighbours[k]);
+                            newneighboursdist.push_back(r);
+                        }//if
                     }//if
                 }//if
                 
@@ -250,7 +296,90 @@ void updateNeighbours (std::vector<Particle*> plist, infoModule* module)
         newneighbours.clear();
         newneighboursdist.clear();
         
+        cout << s << " particles checked for update" << endl;
+        
     }//i
     
     
 }
+
+
+/*
+void updateNeighbours (std::vector<Particle*> plist, infoModule* module)
+{
+    double r = 0.0;
+    int isclose, s;
+    
+    std::vector<Particle*> checked;
+    
+    std::vector<Particle*> newneighbours;
+    std::vector<double> newneighboursdist;
+    
+    Particle* p;
+    
+    for (int i = 0; i<plist.size(); i++)
+    {
+        s=0;
+        
+        for (int j = 0; j<plist[i]->neighbours.size(); j++)
+        {
+            for (int k = 0; k < plist[i]->neighbours[j]->neighbours.size(); k++)
+            {
+                
+                isclose = 0;
+                
+                p = plist[i]->neighbours[j]->neighbours[k];
+                
+                // if the particle has not already been checked then check it
+                if (std::find(checked.begin(), checked.end(), p) == checked.end())
+                {
+                    
+                    checked.push_back(p);
+                    s++;
+                    
+                    if ( plist[i] == p)
+                    {
+                        continue;
+                    }
+                    
+                    
+                    for (int d=0; d<module->nDim; d++)
+                    {
+                        if (fabs(plist[i]->position[d] - p->position[d]) < 2*module->h-0.0000001)
+                        {
+                            isclose++;
+                        }
+                        else break;
+                    }
+                    
+                    if (isclose == module->nDim)
+                    {
+                        r = pDist(plist[i], p);
+                        if (fabs(r) < 2*module->h-0.0000001 ) // if the particles i and k are close add them to the list of newNeighbours for particle i
+                        {
+                            newneighbours.push_back(p);
+                            newneighboursdist.push_back(r);
+                        }//if
+                    }//if
+                }//if
+            }//k
+            
+        }//j
+        
+        
+        plist[i]->neighbours = newneighbours;
+        plist[i]->neighboursdist = newneighboursdist;
+        
+        checked.clear();
+        
+        // reset the newneighbour lists for the next particle
+        newneighbours.clear();
+        newneighboursdist.clear();
+        
+        cout << s << " particles checked for update" << endl;
+        
+    }//i
+    
+    
+}
+*/

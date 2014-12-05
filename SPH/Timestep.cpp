@@ -71,6 +71,7 @@ void constTimeStep(std::vector<Particle*> plist, infoModule* module)
         
         if (refreshCounter >= module->neighbourRefresh )
         {
+            cout << "refreshing neighbour list"<< endl;
             refreshCounter = 0;
             FNMT8(plist, module);
         }
@@ -82,8 +83,11 @@ void constTimeStep(std::vector<Particle*> plist, infoModule* module)
         
         module->simTime = module->simTime + module->deltat;
         
+        cout << "iteration #"<< module->iterationN << endl;
     }
-}
+    
+    
+ }
 
 
 
@@ -122,10 +126,14 @@ void Beemans(std::vector<Particle*> plist, infoModule* module)
     
         // use this velocity to get new forces
     
+    
         DTSMT8(plist, module); // get new densities
     
         PTSMT8(plist,module); // get new pressures
-        
+     
+   
+    
+    
         // work out the next acceleration
         //findNextAccel(plist, module);
         FNAMT8(plist, module);

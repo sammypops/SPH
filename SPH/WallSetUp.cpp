@@ -13,7 +13,7 @@ void box3DOpen(std::vector<Particle*>* plist, infoModule* module)
     double deltax = module->deltax;
     
     
-    createWall(plist, {-deltax,-deltax,-2*deltax}, {2+deltax,2+deltax,-deltax}, module); // base
+    createWall(plist, {-2*deltax,-2*deltax,-2*deltax}, {2+2*deltax,2+2*deltax,-deltax}, module); // base
     createWall(plist, {-2*deltax,-deltax,-2*deltax}, {-deltax,2+deltax,2}, module); //wall1
     createWall(plist, {-deltax,2,-2*deltax}, {2+deltax,2+deltax,2}, module); //wall2
     createWall(plist, {2+deltax,-deltax,-2*deltax}, {2+2*deltax,2,2}, module); //wall3
@@ -25,7 +25,7 @@ void box2DOpen(std::vector<Particle*>* plist, infoModule* module)
 {
     double deltax = module->deltax;
     
-    createWall(plist, {-2*deltax,-2*deltax,0}, {2+2*deltax,-deltax,0}, module);//base
+    createWall(plist, {-2*deltax,-2*deltax,0}, {2+3*deltax,-deltax,0}, module);//base
     createWall(plist, {-2*deltax,0,0}, {-deltax,2,0}, module);// left wall
     createWall(plist, {2+deltax,0,0}, {2+2*deltax,2,0}, module);// right wall
     
